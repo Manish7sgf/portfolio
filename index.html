@@ -345,6 +345,26 @@
             box-shadow: 0 8px 40px var(--shadow);
         }
 
+        .hero-card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .hero-card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-card-image:hover img {
+            transform: scale(1.05);
+        }
+
         .hero-card-header {
             display: flex;
             align-items: center;
@@ -437,47 +457,9 @@
         /* About */
         .about-grid {
             display: grid;
-            grid-template-columns: 290px 1.2fr 1fr;
-            gap: 3.5rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
             align-items: start;
-        }
-
-        .about-visual {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 12px 40px var(--shadow);
-            width: 100%;
-            height: 360px;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .about-image-wrapper:hover .about-image {
-            transform: scale(1.05);
-        }
-
-        .about-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(8, 8, 8, 0) 65%, rgba(8, 8, 8, 0.45) 100%);
-            pointer-events: none;
         }
 
         .about-text p {
@@ -1503,18 +1485,8 @@
                             <p>AI & Full Stack Developer</p>
                         </div>
                     </div>
-                    <div class="code-block">
-                        <span class="cm"># Quick facts about me</span>
-                        <span class="kw">class</span> <span class="fn">Developer</span>:
-                        <span class="kw">def</span> <span class="fn">__init__</span>(self):
-                        self.name = <span class="str">"Manish Varman M"</span>
-                        self.role = <span class="str">"AI / Full Stack"</span>
-                        self.location = <span class="str">"Coimbatore, India"</span>
-                        self.stack = [<span class="str">"Python"</span>, <span class="str">"FastAPI"</span>,
-                        <span class="str">"React"</span>, <span class="str">"LLMs"</span>]
-
-                        <span class="kw">def</span> <span class="fn">currently</span>(self):
-                        <span class="kw">return</span> <span class="str">"Seeking Software / AI roles"</span>
+                    <div class="hero-card-image">
+                        <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM.jpeg" alt="Manish Varman M">
                     </div>
                 </div>
             </div>
@@ -1531,12 +1503,6 @@
                 </div>
             </div>
             <div class="about-grid">
-                <div class="about-visual reveal-right">
-                    <div class="about-image-wrapper">
-                        <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM.jpeg" alt="Manish Varman M"
-                            class="about-image">
-                    </div>
-                </div>
                 <div class="about-text reveal-left">
                     <p>I'm a <strong>final-year B.Tech student</strong> in Artificial Intelligence & Data Science at Dr.
                         N.G.P. Institute of Technology, Coimbatore. With a CGPA of 7.4, I've spent the last few years
