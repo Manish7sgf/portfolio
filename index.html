@@ -5,24 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manish Varman M — AI & Full Stack Developer</title>
-    <meta name="description" content="Portfolio of Manish Varman M, an AI & Full Stack Developer building intelligent systems. Explore projects, skills, and experience.">
-    <meta name="keywords" content="Manish Varman M, AI Developer, Full Stack Developer, portfolio, Machine Learning, FastAPI, React, Node.js">
+    <meta name="description"
+        content="Portfolio of Manish Varman M, an AI & Full Stack Developer building intelligent systems. Explore projects, skills, and experience.">
+    <meta name="keywords"
+        content="Manish Varman M, AI Developer, Full Stack Developer, portfolio, Machine Learning, FastAPI, React, Node.js">
     <meta name="author" content="Manish Varman M">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/Manish7sgf">
     <meta property="og:title" content="Manish Varman M — AI & Full Stack Developer">
-    <meta property="og:description" content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
+    <meta property="og:description"
+        content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Manish7sgf/portfolio/main/preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Manish Varman M — AI & Full Stack Developer">
-    <meta property="twitter:description" content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
+    <meta property="twitter:description"
+        content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -432,9 +437,47 @@
         /* About */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 290px 1.2fr 1fr;
+            gap: 3.5rem;
             align-items: start;
+        }
+
+        .about-visual {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 40px var(--shadow);
+            width: 100%;
+            height: 360px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0) 65%, rgba(8, 8, 8, 0.45) 100%);
+            pointer-events: none;
         }
 
         .about-text p {
@@ -1294,8 +1337,10 @@
         /* Preloader Screen */
         .preloader {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background: #080808;
             z-index: 9999;
             overflow: hidden;
@@ -1308,8 +1353,10 @@
 
         #pl-canvas {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: block;
         }
 
@@ -1447,7 +1494,10 @@
             <div class="hero-visual">
                 <div class="hero-card">
                     <div class="hero-card-header">
-                        <div class="hero-card-avatar">MV</div>
+                        <div class="hero-card-avatar">
+                            <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM (1).jpeg" alt="Manish Varman M"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                        </div>
                         <div class="hero-card-info">
                             <h4>Manish Varman M</h4>
                             <p>AI & Full Stack Developer</p>
@@ -1481,6 +1531,12 @@
                 </div>
             </div>
             <div class="about-grid">
+                <div class="about-visual reveal-right">
+                    <div class="about-image-wrapper">
+                        <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM.jpeg" alt="Manish Varman M"
+                            class="about-image">
+                    </div>
+                </div>
                 <div class="about-text reveal-left">
                     <p>I'm a <strong>final-year B.Tech student</strong> in Artificial Intelligence & Data Science at Dr.
                         N.G.P. Institute of Technology, Coimbatore. With a CGPA of 7.4, I've spent the last few years
@@ -1488,7 +1544,8 @@
                     <p>My work spans <strong>full-stack web development</strong>, <strong>REST API design</strong>, and
                         <strong>AI/ML integration</strong> — from building autonomous CI/CD agents that self-heal
                         pipeline failures to deploying multilingual health chatbots serving low-literacy populations
-                        across India.</p>
+                        across India.
+                    </p>
                     <p>I believe in <strong>shipping fast, iterating faster</strong>, and building tools that solve real
                         problems. Every project in my portfolio is live, deployed, and documented.</p>
                 </div>
@@ -1527,7 +1584,8 @@
                 <!-- Languages -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
@@ -1545,7 +1603,8 @@
                 <!-- Frameworks -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                             <polyline points="2 17 12 22 22 17"></polyline>
                             <polyline points="2 12 12 17 22 12"></polyline>
@@ -1564,8 +1623,11 @@
                 <!-- AI / ML -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                            </path>
                             <circle cx="12" cy="12" r="4"></circle>
                         </svg>
                         <h4>AI / ML</h4>
@@ -1583,7 +1645,8 @@
                 <!-- DevOps & Tools -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="18" cy="18" r="3"></circle>
                             <circle cx="6" cy="6" r="3"></circle>
                             <circle cx="6" cy="18" r="3"></circle>
@@ -1605,7 +1668,8 @@
                 <!-- Databases -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
                             <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                             <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
@@ -1622,8 +1686,11 @@
                 <!-- Deployment -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
@@ -1640,7 +1707,8 @@
                 <!-- Data Science -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="20" x2="18" y2="10"></line>
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
@@ -1659,7 +1727,8 @@
                 <!-- Soft Skills -->
                 <div class="skill-category">
                     <div class="skill-header">
-                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -1726,7 +1795,11 @@
                         <span class="project-year">2026</span>
                         <div class="project-links">
                             <a href="https://github.com/Manish7sgf/Retail-E-commerce-Customer-Behavior-Analysis"
-                                target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                                target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1755,7 +1828,12 @@
                     <div class="project-header">
                         <span class="project-year">2025</span>
                         <div class="project-links">
-                            <a href="https://github.com/Manish7sgf/Medimate" target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                            <a href="https://github.com/Manish7sgf/Medimate" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1783,7 +1861,12 @@
                     <div class="project-header">
                         <span class="project-year">2026</span>
                         <div class="project-links">
-                            <a href="https://github.com/Manish7sgf" target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                            <a href="https://github.com/Manish7sgf" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1812,7 +1895,12 @@
                     <div class="project-header">
                         <span class="project-year">2026</span>
                         <div class="project-links">
-                            <a href="https://github.com/Manish7sgf/AI-Passport" target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                            <a href="https://github.com/Manish7sgf/AI-Passport" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1841,7 +1929,12 @@
                     <div class="project-header">
                         <span class="project-year">2024</span>
                         <div class="project-links">
-                            <a href="https://github.com/Manish7sgf" target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                            <a href="https://github.com/Manish7sgf" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1871,7 +1964,11 @@
                         <span class="project-year">2025</span>
                         <div class="project-links">
                             <a href="https://github.com/Manish7sgf/AI-Powered-Chat-Bot-" target="_blank"
-                                title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                                title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1957,69 +2054,86 @@
                 </div>
             </div>
             <div class="certs-grid stagger-list">
-                <div class="cert-card" onclick="openLightbox('certifications/NPTEL(HCI).jpeg', 'Human Computer Interaction — NPTEL · IIT Madras (Score: 98%)')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/NPTEL(HCI).jpeg', 'Human Computer Interaction — NPTEL · IIT Madras (Score: 98%)')">
                     <div class="cert-img-container">
-                        <img src="certifications/NPTEL(HCI).jpeg" alt="Human Computer Interaction" class="cert-img" loading="lazy">
+                        <img src="certifications/NPTEL(HCI).jpeg" alt="Human Computer Interaction" class="cert-img"
+                            loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">NPTEL · IIT Madras</div>
                         <h4>Human Computer Interaction</h4>
-                        <p>Comprehensive course covering user interface design principles, cognitive models, user evaluation, and interactive system prototyping.</p>
+                        <p>Comprehensive course covering user interface design principles, cognitive models, user
+                            evaluation, and interactive system prototyping.</p>
                         <div class="cert-badge">Score: 98% · Top 5%</div>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openLightbox('certifications/Intro-cloud-computing.jpeg', 'Introduction to Cloud Computing — Simplilearn')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/Intro-cloud-computing.jpeg', 'Introduction to Cloud Computing — Simplilearn')">
                     <div class="cert-img-container">
-                        <img src="certifications/Intro-cloud-computing.jpeg" alt="Introduction to Cloud Computing" class="cert-img" loading="lazy">
+                        <img src="certifications/Intro-cloud-computing.jpeg" alt="Introduction to Cloud Computing"
+                            class="cert-img" loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">Simplilearn</div>
                         <h4>Introduction to Cloud Computing</h4>
-                        <p>Foundational concepts of cloud architecture, virtualization, service models (IaaS/PaaS/SaaS), and distributed computing infrastructure.</p>
+                        <p>Foundational concepts of cloud architecture, virtualization, service models (IaaS/PaaS/SaaS),
+                            and distributed computing infrastructure.</p>
                         <div class="cert-badge">Completed</div>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openLightbox('certifications/PowerBI.jpeg', 'Power BI for Beginners — Simplilearn')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/PowerBI.jpeg', 'Power BI for Beginners — Simplilearn')">
                     <div class="cert-img-container">
-                        <img src="certifications/PowerBI.jpeg" alt="Power BI for Beginners" class="cert-img" loading="lazy">
+                        <img src="certifications/PowerBI.jpeg" alt="Power BI for Beginners" class="cert-img"
+                            loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">Simplilearn</div>
                         <h4>Power BI for Beginners</h4>
-                        <p>Data visualization, dashboard design, DAX queries, and connecting multiple structured data sources for retail analysis.</p>
+                        <p>Data visualization, dashboard design, DAX queries, and connecting multiple structured data
+                            sources for retail analysis.</p>
                         <div class="cert-badge">Completed</div>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openLightbox('certifications/claude-101.jpeg', 'Claude 101 — Anthropic Developer Education')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/claude-101.jpeg', 'Claude 101 — Anthropic Developer Education')">
                     <div class="cert-img-container">
                         <img src="certifications/claude-101.jpeg" alt="Claude 101" class="cert-img" loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">Anthropic</div>
                         <h4>Claude 101</h4>
-                        <p>Advanced prompt engineering techniques, XML tag structuring, system messaging, and context length optimization for Claude LLMs.</p>
+                        <p>Advanced prompt engineering techniques, XML tag structuring, system messaging, and context
+                            length optimization for Claude LLMs.</p>
                         <div class="cert-badge">Completed</div>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openLightbox('certifications/claude-AI-fluency.jpeg', 'Claude AI Fluency — Anthropic Developer Education')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/claude-AI-fluency.jpeg', 'Claude AI Fluency — Anthropic Developer Education')">
                     <div class="cert-img-container">
-                        <img src="certifications/claude-AI-fluency.jpeg" alt="Claude AI Fluency" class="cert-img" loading="lazy">
+                        <img src="certifications/claude-AI-fluency.jpeg" alt="Claude AI Fluency" class="cert-img"
+                            loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">Anthropic</div>
                         <h4>Claude AI Fluency</h4>
-                        <p>Practical integration of Claude API, building tool-use workflows, agentic loop design, and handling conversational state in web apps.</p>
+                        <p>Practical integration of Claude API, building tool-use workflows, agentic loop design, and
+                            handling conversational state in web apps.</p>
                         <div class="cert-badge">Completed</div>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openLightbox('certifications/hackathon.jpeg', 'Nandha College 24-Hour Hackathon Certificate')">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/hackathon.jpeg', 'Nandha College 24-Hour Hackathon Certificate')">
                     <div class="cert-img-container">
-                        <img src="certifications/hackathon.jpeg" alt="Hackathon Certificate" class="cert-img" loading="lazy">
+                        <img src="certifications/hackathon.jpeg" alt="Hackathon Certificate" class="cert-img"
+                            loading="lazy">
                     </div>
                     <div class="cert-info">
                         <div class="cert-org">Nandha College of Tech</div>
                         <h4>24-Hour National Hackathon</h4>
-                        <p>Certificate of presentation and completion for developing HealBot — the self-healing CI/CD pipeline repair agent in Erode.</p>
+                        <p>Certificate of presentation and completion for developing HealBot — the self-healing CI/CD
+                            pipeline repair agent in Erode.</p>
                         <div class="cert-badge">Participant</div>
                     </div>
                 </div>
@@ -2039,7 +2153,11 @@
             <div class="achievements-grid stagger-list">
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
                     </div>
                     <div class="achievement-content">
                         <h4>CodeZap Hackathon</h4>
@@ -2048,7 +2166,11 @@
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
                     </div>
                     <div class="achievement-content">
                         <h4>Nandha College 24-Hour Hackathon</h4>
@@ -2057,7 +2179,14 @@
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
                     </div>
                     <div class="achievement-content">
                         <h4>Paper Presentation — Skin Cancer Detection</h4>
@@ -2066,7 +2195,12 @@
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                        </svg>
                     </div>
                     <div class="achievement-content">
                         <h4>Paper Presentation — Personal Voice Assistant</h4>
@@ -2083,7 +2217,8 @@
             <div class="contact-card reveal-scale">
                 <p class="label">Let's Connect</p>
                 <h2>Ready to build<br>something together?</h2>
-                <p>I'm currently seeking Software Developer, Full Stack, or AI Engineer roles. If my work resonates with what you're building, I'd love to talk.</p>
+                <p>I'm currently seeking Software Developer, Full Stack, or AI Engineer roles. If my work resonates with
+                    what you're building, I'd love to talk.</p>
                 <div class="contact-links">
                     <a href="mailto:manishvarman5@gmail.com">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -2144,8 +2279,8 @@
         // + 3D Perspective Glitch Name Reveal  (pure JS, no libraries)
         // ═══════════════════════════════════════════════════════════════
         (function () {
-            const canvas  = document.getElementById('pl-canvas');
-            const ctx     = canvas.getContext('2d');
+            const canvas = document.getElementById('pl-canvas');
+            const ctx = canvas.getContext('2d');
             const preloader = document.getElementById('preloader');
 
             // ── Accent colour (copper-orange)
@@ -2155,7 +2290,7 @@
             // ── Resize helper
             let W, H;
             function resize() {
-                W = canvas.width  = canvas.offsetWidth;
+                W = canvas.width = canvas.offsetWidth;
                 H = canvas.height = canvas.offsetHeight;
             }
             resize();
@@ -2182,7 +2317,7 @@
                 drops.forEach((y, i) => {
                     // Random katakana / binary char
                     const ch = MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
-                    const x  = i * FONT_SIZE;
+                    const x = i * FONT_SIZE;
 
                     // Head char — bright accent
                     const bright = Math.random() > 0.8 ? '#FFFFFF' : `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},0.95)`;
@@ -2280,10 +2415,10 @@
                     ctx.stroke();
                 }
                 for (let row = 0; row <= 12; row++) {
-                    const t   = row / 12;
-                    const y   = vy + (H - vy) * (t * t);
-                    const xl  = vx + (0 - vx) * (t * t * 0.3 + t * 0.7);
-                    const xr  = vx + (W - vx) * (t * t * 0.3 + t * 0.7);
+                    const t = row / 12;
+                    const y = vy + (H - vy) * (t * t);
+                    const xl = vx + (0 - vx) * (t * t * 0.3 + t * 0.7);
+                    const xr = vx + (W - vx) * (t * t * 0.3 + t * 0.7);
                     ctx.beginPath();
                     ctx.moveTo(xl, y);
                     ctx.lineTo(xr, y);
@@ -2316,26 +2451,86 @@
             }
 
             // ─────────────────────────────────────────────────────────────
-            // 5. SHOCKWAVE RINGS (canvas-drawn)
+            // 5. TARGETING HUD LOCK-ON BRACKETS (canvas-drawn)
             // ─────────────────────────────────────────────────────────────
-            let rings = [];
-            function spawnRing(x, y, color) {
-                rings.push({ x, y, r: 5, maxR: Math.min(W, H) * 0.55, alpha: 0.8, color });
-            }
-            function drawRings() {
-                rings = rings.filter(ring => ring.alpha > 0);
-                rings.forEach(ring => {
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2);
-                    ctx.strokeStyle = ring.color;
-                    ctx.lineWidth = 1.5;
-                    ctx.globalAlpha = ring.alpha;
-                    ctx.stroke();
-                    ctx.restore();
-                    ring.r     += (ring.maxR - ring.r) * 0.06;
-                    ring.alpha -= 0.012;
-                });
+            function drawHUDLock(alpha, progress) {
+                if (alpha <= 0.01) return;
+                if (!charsReady) return;
+                const mChar = chars[0];
+                const vChar = chars[7];
+                const cy = H / 2 + mChar.BASE * 0.35;
+
+                const boxW = (vChar.x_init + vChar.cw) - mChar.x_init + 48;
+                const boxH = mChar.BASE * 1.25;
+                const bx = W / 2 - boxW / 2;
+                const by = cy - mChar.BASE * 0.85;
+
+                // Target lock-in scale animation
+                const t = easeOut(progress);
+                const pad = 65 * (1 - t) + 12;
+                const bl = bx - pad;
+                const bt = by - pad;
+                const br = bx + boxW + pad;
+                const bb = by + boxH + pad;
+
+                const len = 18; // length of corner bracket strokes
+
+                ctx.save();
+                ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * (Math.random() > 0.85 ? 0.3 : 0.8)})`;
+                ctx.lineWidth = 1.8;
+
+                // Add tiny positioning jitters on coordinate matrix glitches
+                let ox = 0, oy = 0;
+                if (Math.random() > 0.92) {
+                    ox = (Math.random() - 0.5) * 10;
+                    oy = (Math.random() - 0.5) * 6;
+                }
+
+                // Draw corner segments
+                ctx.beginPath();
+                // Top-Left
+                ctx.moveTo(bl + ox + len, bt + oy);
+                ctx.lineTo(bl + ox, bt + oy);
+                ctx.lineTo(bl + ox, bt + oy + len);
+
+                // Top-Right
+                ctx.moveTo(br + ox - len, bt + oy);
+                ctx.lineTo(br + ox, bt + oy);
+                ctx.lineTo(br + ox, bt + oy + len);
+
+                // Bottom-Left
+                ctx.moveTo(bl + ox + len, bb + oy);
+                ctx.lineTo(bl + ox, bb + oy);
+                ctx.lineTo(bl + ox, bb + oy - len);
+
+                // Bottom-Right
+                ctx.moveTo(br + ox - len, bb + oy);
+                ctx.lineTo(br + ox, bb + oy);
+                ctx.lineTo(br + ox, bb + oy - len);
+
+                ctx.stroke();
+
+                // Draw scanning laser bar sweeping inside targeting box
+                const scanPeriod = (performance.now() / 180) % (Math.PI * 2);
+                const scanY = by + boxH * 0.5 + Math.sin(scanPeriod) * (boxH * 0.45);
+                ctx.beginPath();
+                ctx.moveTo(bx - 4, scanY);
+                ctx.lineTo(bx + boxW + 4, scanY);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.25})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Digital targeting text status labels
+                ctx.fillStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * 0.6})`;
+                ctx.font = "9px 'JetBrains Mono', monospace";
+
+                if (Math.random() > 0.1) {
+                    ctx.fillText("SYS: SECURE", bl, bt - 6);
+                    ctx.textAlign = "right";
+                    ctx.fillText("LOCK: ENGAGED", br, bb + 12);
+                }
+
+                ctx.restore();
             }
 
             // ─────────────────────────────────────────────────────────────
@@ -2354,14 +2549,14 @@
             let startTime = null;
             let raf;
 
-            const lerp      = (a, b, t) => a + (b - a) * t;
-            const clamp01   = t => Math.max(0, Math.min(1, t));
-            const easeOut   = t => 1 - Math.pow(1 - t, 3);
-            const easeIn    = t => t * t * t;
-            const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+            const lerp = (a, b, t) => a + (b - a) * t;
+            const clamp01 = t => Math.max(0, Math.min(1, t));
+            const easeOut = t => 1 - Math.pow(1 - t, 3);
+            const easeIn = t => t * t * t;
+            const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
             const easeElastic = t => {
                 if (t <= 0) return 0; if (t >= 1) return 1;
-                return Math.pow(2,-10*t) * Math.sin((t*10-0.75)*(2*Math.PI/3)) + 1;
+                return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI / 3)) + 1;
             };
 
             // ── stage-level alphas
@@ -2370,14 +2565,14 @@
                 return clamp01((ms - s) / (e - s));
             }
 
-             const FULL_NAME      = 'Manish Varman';
+            const FULL_NAME = 'Manish Varman';
             const SCRAMBLE_CHARS = '01アイウエオカキクケコサシスセソタチツハヒ!@#$%?';
 
-            let chars       = [];
-            let charsReady  = false;
+            let chars = [];
+            let charsReady = false;
             let ringSpawned = [false, false, false, false];
-            let mvGlitch    = 0;
-            
+            let mvGlitch = 0;
+
             // Circuit dissolve variables
             let circuitInitialized = false;
             let circuitPaths = [];
@@ -2385,38 +2580,38 @@
 
             function buildCharPositions() {
                 const BASE = Math.min(W, H) * 0.10;
-                const tmp  = document.createElement('canvas');
-                tmp.width  = W; tmp.height = H;
-                const tc   = tmp.getContext('2d');
-                tc.font    = `700 ${BASE}px 'DM Serif Display', serif`;
-                
+                const tmp = document.createElement('canvas');
+                tmp.width = W; tmp.height = H;
+                const tc = tmp.getContext('2d');
+                tc.font = `700 ${BASE}px 'DM Serif Display', serif`;
+
                 const charsList = FULL_NAME.split('');
-                
+
                 // Measure each char individually
                 const cws = charsList.map(ch => tc.measureText(ch === ' ' ? 'n' : ch).width * (ch === ' ' ? 0.38 : 1));
                 const totalW = cws.reduce((a, b) => a + b, 0);
-                
+
                 // Final positions (centered full name layout)
-                let cx = W/2 - totalW/2;
-                const cy = H/2 + BASE * 0.35;
+                let cx = W / 2 - totalW / 2;
+                const cy = H / 2 + BASE * 0.35;
                 const finalXs = [];
                 for (let i = 0; i < charsList.length; i++) {
                     finalXs.push(cx);
                     cx += cws[i];
                 }
-                
+
                 // Initial positions (centered "M V" layout)
                 // M is index 0, space is index 6, V is index 7
                 const initW = cws[0] + cws[6] + cws[7];
-                const cx_init = W/2 - initW/2;
+                const cx_init = W / 2 - initW / 2;
                 const initX_M = cx_init;
                 const initX_V = cx_init + cws[0] + cws[6];
-                
+
                 chars = charsList.map((ch, i) => {
                     let color = 'rgba(210,210,210,0.95)';
-                    if (i === 0)                        color = '#FFFFFF';
-                    if (ch === 'V')                     color = ACCENT;
-                    
+                    if (i === 0) color = '#FFFFFF';
+                    if (ch === 'V') color = ACCENT;
+
                     let x_init = 0;
                     if (i === 0) {
                         x_init = initX_M;
@@ -2428,19 +2623,19 @@
                         // index 8 to 14
                         x_init = initX_V + cws[7];
                     }
-                    
+
                     // Collapse target (merging into single M centered)
-                    const x_collapse = W/2 - cws[0]/2;
-                    
-                    const ang = Math.atan2(cy - H/2, finalXs[i] - W/2) + (Math.random()-0.5)*0.8;
-                    const spd = 8 + Math.random()*8;
+                    const x_collapse = W / 2 - cws[0] / 2;
+
+                    const ang = Math.atan2(cy - H / 2, finalXs[i] - W / 2) + (Math.random() - 0.5) * 0.8;
+                    const spd = 8 + Math.random() * 8;
                     return {
                         ch, finalX: finalXs[i], finalY: cy, cw: cws[i], BASE, color, i,
                         x_init,
                         x_collapse,
                         lockAt: STAGE_T[4] + 250 + i * 35,
-                        svx: Math.cos(ang)*spd + (Math.random()-0.5)*3,
-                        svy: Math.sin(ang)*spd + (Math.random()-0.5)*3 - 2,
+                        svx: Math.cos(ang) * spd + (Math.random() - 0.5) * 3,
+                        svy: Math.sin(ang) * spd + (Math.random() - 0.5) * 3 - 2,
                         shot: false
                     };
                 });
@@ -2452,34 +2647,33 @@
                 if (!startTime) startTime = now;
                 const ms = now - startTime;
 
-                while (stage < STAGE_T.length - 1 && ms >= STAGE_T[stage+1]) stage++;
+                while (stage < STAGE_T.length - 1 && ms >= STAGE_T[stage + 1]) stage++;
 
                 ctx.fillStyle = 'rgba(8,8,8,0.20)';
                 ctx.fillRect(0, 0, W, H);
 
-                const matA = clamp01(easeOut(stageProgress(ms,0))) * clamp01(easeOut(1-stageProgress(ms,2)));
-                const netA = clamp01(easeInOut(stageProgress(ms,1))) * clamp01(1-easeOut(stageProgress(ms,3)));
-                const gridA = clamp01(easeOut(stageProgress(ms,2))) * clamp01(1-easeOut(stageProgress(ms,3)));
+                const matA = clamp01(easeOut(stageProgress(ms, 0))) * clamp01(easeOut(1 - stageProgress(ms, 2)));
+                const netA = clamp01(easeInOut(stageProgress(ms, 1))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
+                const gridA = clamp01(easeOut(stageProgress(ms, 2))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
 
                 drawMatrix(matA);
                 drawNetwork(netA);
                 drawGrid(gridA);
-                drawRings();
 
-                // Stage 3: MV glitch
+                // Stage 3: MV glitch & target HUD lock-on
                 if (ms >= STAGE_T[3] && ms < STAGE_T[5]) {
                     const p3 = stageProgress(ms, 3);
                     const mvA = clamp01(easeOut(p3));
-                    if (!ringSpawned[0] && mvA > 0.05) {
-                        ringSpawned[0] = true;
-                        spawnRing(W/2, H/2, ACCENT);
-                        spawnRing(W/2, H/2, '#FFFFFF');
+                    if (mvA < 0.5) {
+                        mvGlitch = lerp(24, 2, p3 * 2);
+                    } else {
+                        mvGlitch = Math.random() > 0.86 ? 4 + Math.random() * 12 : (Math.random() > 0.65 ? 1 : 0);
                     }
-                    mvGlitch = mvA < 0.6 ? lerp(24, 0, p3*2.5) : 0;
-                    const mvFade = ms >= STAGE_T[4] ? clamp01(1 - stageProgress(ms,4)*8) : mvA;
+                    const mvFade = ms >= STAGE_T[4] ? clamp01(1 - stageProgress(ms, 4) * 8) : mvA;
                     if (mvFade > 0.01) {
                         if (!charsReady) buildCharPositions();
                         drawInitialsGlitch(mvGlitch, mvFade);
+                        drawHUDLock(mvFade, p3);
                     }
                 }
 
@@ -2487,10 +2681,9 @@
                 if (ms >= STAGE_T[4] && ms < STAGE_T[7]) {
                     if (!charsReady) {
                         buildCharPositions();
-                        if (!ringSpawned[1]) { ringSpawned[1]=true; spawnRing(W/2,H/2,ACCENT); }
                     }
                     const shooting = ms >= STAGE_T[6];
-                    const shootP   = stageProgress(ms, 6);
+                    const shootP = stageProgress(ms, 6);
                     drawSpringName(ms, now, shooting, shootP);
                 }
 
@@ -2501,7 +2694,7 @@
                         initCircuitDissolve();
                     }
                     drawCircuitDissolve(p7);
-                    
+
                     if (ms >= STAGE_T[8]) {
                         cancelAnimationFrame(raf);
                         preloader.style.display = 'none';
@@ -2510,78 +2703,117 @@
             }
 
             // ─────────────────────────────────────────────────────────────
-            // 8. ELASTIC SPRING + COLLAPSE NAME DRAW
+            // 8. MATRIX POP-UP GLITCH DISSOLVE + COLLAPSE NAME DRAW
             // ─────────────────────────────────────────────────────────────
             function drawSpringName(ms, now, shooting, shootP) {
                 if (!charsReady) return;
-                const SPRING_DUR = STAGE_T[5] - STAGE_T[4]; // 900 ms
 
                 chars.forEach(c => {
                     if (c.ch === ' ') return;
 
-                    // ── Collapse back into M
+                    // ── Collapse back into M (Stage 6)
                     if (shooting) {
                         const t = easeInOut(shootP);
                         const px = lerp(c.finalX, c.x_collapse, t);
                         const py = c.finalY;
-                        
+
                         if (c.i === 0) {
-                            // First M slides to center and glows
                             ctx.save();
-                            ctx.globalAlpha  = 1;
-                            ctx.font         = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                            ctx.globalAlpha = 1;
+                            ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
                             ctx.textBaseline = 'alphabetic';
-                            ctx.fillStyle    = '#FFFFFF';
+                            ctx.fillStyle = '#FFFFFF';
                             if (shootP > 0) {
                                 ctx.shadowColor = '#FFFFFF';
-                                ctx.shadowBlur  = 65 * shootP;
+                                ctx.shadowBlur = 65 * shootP;
                             }
                             ctx.fillText('M', px, py);
                             ctx.restore();
                             return;
                         }
-                        
+
                         const a = clamp01(1 - t * 1.5);
                         if (a <= 0) return;
-                        
+
                         ctx.save();
-                        ctx.globalAlpha  = a;
-                        ctx.font         = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.globalAlpha = a;
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
                         ctx.textBaseline = 'alphabetic';
-                        ctx.fillStyle    = c.color;
+                        ctx.fillStyle = c.color;
                         ctx.fillText(c.ch, px, py);
                         ctx.restore();
                         return;
                     }
 
-                    // ── Spring-in
-                    const springT  = clamp01((ms - STAGE_T[4]) / SPRING_DUR);
-                    const px = lerp(c.x_init, c.finalX, easeElastic(springT));
-                    const py = lerp(H/2, c.finalY, easeElastic(springT));
-                    const alpha = clamp01((ms - STAGE_T[4]) / 150);
-                    if (alpha <= 0) return;
+                    // ── Pop-up Glitch Dissolve Transition (Stage 4 & 5)
+                    const tGlitch = ms - STAGE_T[4]; // ms elapsed in Stage 4
+                    const cy = c.finalY;
+                    const SCRAMBLE_DUR = 580; // Extended scramble window for better visibility
 
-                    const locked  = ms >= c.lockAt;
-                    const flash   = locked ? clamp01(1 - (ms - c.lockAt) / 220) : 0;
-                    const scaleY  = locked ? (1 + flash * 0.45) : 0.7;
+                    if (tGlitch < SCRAMBLE_DUR) {
+                        // 1. Draw initials M V fading out at x_init
+                        if (c.i === 0 || c.i === 7) {
+                            const initFade = clamp01(1 - tGlitch / 400);
+                            ctx.save();
+                            ctx.globalAlpha = initFade * (Math.random() > 0.4 ? 0.3 : 1.0);
+                            ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                            ctx.textBaseline = 'alphabetic';
+                            ctx.fillStyle = c.i === 0 ? '#FFFFFF' : ACCENT;
 
-                    const drawCh = locked
-                        ? c.ch
-                        : SCRAMBLE_CHARS[Math.floor(now / 35) % SCRAMBLE_CHARS.length];
-                    const color = !locked
-                        ? `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},0.9)`
-                        : (flash > 0.2 ? '#FFFFFF' : c.color);
+                            // Horizontal slice offset glitch
+                            const gox = (Math.random() - 0.5) * 14 * initFade;
+                            ctx.fillText(c.ch, c.x_init + gox, cy);
+                            ctx.restore();
+                        }
 
-                    ctx.save();
-                    ctx.globalAlpha  = alpha;
-                    ctx.font         = `700 ${c.BASE}px 'DM Serif Display', serif`;
-                    ctx.textBaseline = 'alphabetic';
-                    ctx.fillStyle    = color;
-                    if (flash > 0) { ctx.shadowColor = '#FFFFFF'; ctx.shadowBlur = 32 * flash; }
-                    ctx.translate(px + c.cw/2, py - c.BASE*0.38);
-                    ctx.scale(1, scaleY);
-                    ctx.fillText(drawCh, -c.cw/2, 0);
-                    ctx.restore();
+                        // 2. Draw full name letters scrambling and fading in at finalX
+                        const fadeIn = clamp01(tGlitch / 480);
+                        const isScrambled = Math.random() > (tGlitch / SCRAMBLE_DUR); // decreases over time
+
+                        // Slow down flicker frequency by changing characters every 65ms
+                        const charIndex = Math.floor((now + c.i * 45) / 65) % SCRAMBLE_CHARS.length;
+                        const drawCh = isScrambled ? SCRAMBLE_CHARS[charIndex] : c.ch;
+
+                        ctx.save();
+                        ctx.globalAlpha = fadeIn * (Math.random() > 0.35 ? 1.0 : 0.15); // opacity flicker
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+
+                        const gox = (Math.random() - 0.5) * 8 * (1 - tGlitch / SCRAMBLE_DUR);
+
+                        // Chromatic aberration
+                        if (Math.random() > 0.5) {
+                            ctx.fillStyle = 'rgba(255, 0, 80, 0.7)';
+                            ctx.fillText(drawCh, c.finalX + gox - 3, cy);
+                            ctx.fillStyle = 'rgba(0, 220, 255, 0.7)';
+                            ctx.fillText(drawCh, c.finalX + gox + 3, cy);
+                        }
+
+                        ctx.fillStyle = isScrambled ? ACCENT : c.color;
+                        ctx.fillText(drawCh, c.finalX + gox, cy);
+                        ctx.restore();
+
+                    } else {
+                        // 3. Locked full name in final position (Stage 5 / end of Stage 4)
+                        const flash = clamp01(1 - (tGlitch - SCRAMBLE_DUR) / 220);
+                        const scaleY = 1 + flash * 0.15; // subtle snap elastic lock bounce
+
+                        ctx.save();
+                        ctx.globalAlpha = 1;
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+                        ctx.fillStyle = c.color;
+
+                        if (flash > 0) {
+                            ctx.shadowColor = '#FFFFFF';
+                            ctx.shadowBlur = 40 * flash;
+                        }
+
+                        ctx.translate(c.finalX + c.cw / 2, cy - c.BASE * 0.38);
+                        ctx.scale(1, scaleY);
+                        ctx.fillText(c.ch, -c.cw / 2, c.BASE * 0.38);
+                        ctx.restore();
+                    }
                 });
             }
 
@@ -2592,41 +2824,84 @@
                 if (!charsReady) return;
                 const mChar = chars[0];
                 const vChar = chars[7];
-                const cy = H/2 + mChar.BASE * 0.35;
-                
-                // M
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.font = `700 ${mChar.BASE}px 'DM Serif Display', serif`;
-                ctx.textBaseline = 'alphabetic';
-                if (glitchAmt > 0) {
-                    ctx.globalAlpha = alpha * 0.6;
-                    ctx.fillStyle = 'rgba(255,0,80,0.7)';
-                    ctx.fillText('M', mChar.x_init - glitchAmt, cy + glitchAmt * 0.5);
-                    ctx.fillStyle = 'rgba(0,220,255,0.7)';
-                    ctx.fillText('M', mChar.x_init + glitchAmt, cy - glitchAmt * 0.5);
-                    ctx.globalAlpha = alpha;
-                }
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillText('M', mChar.x_init, cy);
-                ctx.restore();
+                const cy = H / 2 + mChar.BASE * 0.35;
 
-                // V
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.font = `700 ${vChar.BASE}px 'DM Serif Display', serif`;
-                ctx.textBaseline = 'alphabetic';
-                if (glitchAmt > 0) {
-                    ctx.globalAlpha = alpha * 0.6;
-                    ctx.fillStyle = 'rgba(255,0,80,0.7)';
-                    ctx.fillText('V', vChar.x_init - glitchAmt, cy + glitchAmt * 0.5);
-                    ctx.fillStyle = 'rgba(0,220,255,0.7)';
-                    ctx.fillText('V', vChar.x_init + glitchAmt, cy - glitchAmt * 0.5);
-                    ctx.globalAlpha = alpha;
+                // Render micro scanline noise bars crossing the initials height
+                if (glitchAmt > 0 && Math.random() > 0.55) {
+                    const barCount = 1 + Math.floor(Math.random() * 3);
+                    ctx.save();
+                    for (let b = 0; b < barCount; b++) {
+                        const by = cy - mChar.BASE * 0.75 + Math.random() * mChar.BASE * 1.2;
+                        const bh = 1.5 + Math.random() * 3.5;
+                        const bx = W / 2 - mChar.BASE * 1.8 + Math.random() * mChar.BASE * 3.6;
+                        const bw = 25 + Math.random() * 100;
+                        ctx.fillStyle = Math.random() > 0.5 ? ACCENT : '#FFFFFF';
+                        ctx.globalAlpha = alpha * 0.45;
+                        ctx.fillRect(bx, by, bw, bh);
+                    }
+                    ctx.restore();
                 }
-                ctx.fillStyle = ACCENT;
-                ctx.fillText('V', vChar.x_init, cy);
-                ctx.restore();
+
+                // Helper to draw horizontal slice chromatic aberrations
+                function drawSliceChar(char, x, y, baseSize, color) {
+                    // Draw base letter underlay with slight noise
+                    ctx.save();
+                    ctx.globalAlpha = alpha * (Math.random() > 0.15 ? 0.35 : 0.85);
+                    ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.fillStyle = color;
+                    ctx.fillText(char, x, y);
+                    ctx.restore();
+
+                    // If glitching, apply horizontal slice cuts
+                    if (glitchAmt > 0) {
+                        const slices = 3;
+                        const h = baseSize * 1.35;
+                        const startY = y - baseSize * 0.9;
+
+                        for (let s = 0; s < slices; s++) {
+                            const sliceY = startY + (h / slices) * s;
+                            const sliceH = h / slices;
+
+                            // Horizontal offset shift inside slice
+                            const sliceOffset = (Math.random() - 0.5) * glitchAmt * 2.4;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.rect(0, sliceY, W, sliceH);
+                            ctx.clip();
+
+                            ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                            ctx.textBaseline = 'alphabetic';
+                            ctx.globalAlpha = alpha;
+
+                            // Chromatic offsets
+                            ctx.fillStyle = 'rgba(255, 0, 80, 0.75)';
+                            ctx.fillText(char, x + sliceOffset - 3.5, y);
+
+                            ctx.fillStyle = 'rgba(0, 220, 255, 0.75)';
+                            ctx.fillText(char, x + sliceOffset + 3.5, y);
+
+                            ctx.fillStyle = color;
+                            ctx.fillText(char, x + sliceOffset, y);
+
+                            ctx.restore();
+                        }
+                    } else {
+                        // Unglitched normal render
+                        ctx.save();
+                        ctx.globalAlpha = alpha;
+                        ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+                        ctx.fillStyle = color;
+                        ctx.fillText(char, x, y);
+                        ctx.restore();
+                    }
+                }
+
+                // Render M and V using slice generator
+                drawSliceChar('M', mChar.x_init, cy, mChar.BASE, '#FFFFFF');
+                drawSliceChar('V', vChar.x_init, cy, vChar.BASE, ACCENT);
             }
 
             // ─────────────────────────────────────────────────────────────
@@ -2646,31 +2921,31 @@
                 // Generate circuit paths branching out orthogonally from center
                 const PATH_COUNT = 65;
                 for (let i = 0; i < PATH_COUNT; i++) {
-                    const points = [{ x: W/2, y: H/2 }];
-                    let curX = W/2;
-                    let curY = H/2;
-                    
+                    const points = [{ x: W / 2, y: H / 2 }];
+                    let curX = W / 2;
+                    let curY = H / 2;
+
                     const segments = [];
                     let lastDir = Math.floor(Math.random() * 4); // 0:R, 1:D, 2:L, 3:U
                     const segmentCount = 3 + Math.floor(Math.random() * 2); // 3 or 4 turns
-                    
+
                     for (let s = 0; s < segmentCount; s++) {
                         const turn = Math.random() > 0.45 ? (Math.random() > 0.5 ? 1 : -1) : 0;
                         const dir = (lastDir + turn + 4) % 4;
                         const len = 65 + Math.random() * 140;
-                        
+
                         const p0 = { x: curX, y: curY };
-                        if (dir === 0)      curX += len;
+                        if (dir === 0) curX += len;
                         else if (dir === 1) curY += len;
                         else if (dir === 2) curX -= len;
                         else if (dir === 3) curY -= len;
                         const p1 = { x: curX, y: curY };
-                        
+
                         segments.push({ p0, p1, len });
                         points.push(p1);
                         lastDir = dir;
                     }
-                    
+
                     const totalLen = segments.reduce((a, b) => a + b.len, 0);
                     circuitPaths.push({ points, segments, totalLen });
                 }
@@ -2683,7 +2958,7 @@
                     const size = 3 + Math.random() * 4;
                     const delay = Math.random() * 0.35;
                     const pathIndex = Math.floor(Math.random() * PATH_COUNT);
-                    
+
                     dataBlocks.push({
                         ox, oy, size, delay, pathIndex,
                         color: Math.random() > 0.4 ? ACCENT : '#FFFFFF'
@@ -2709,7 +2984,7 @@
 
             function drawCircuitDissolve(p7) {
                 ctx.clearRect(0, 0, W, H);
-                
+
                 const alpha = clamp01(1 - p7);
 
                 // 1. Draw decaying central "M"
@@ -2722,10 +2997,10 @@
                 circuitPaths.forEach(path => {
                     const traceProgress = clamp01(p7 * 1.5);
                     const drawLen = traceProgress * path.totalLen;
-                    
+
                     ctx.beginPath();
                     ctx.moveTo(path.points[0].x, path.points[0].y);
-                    
+
                     let accumulated = 0;
                     for (let seg of path.segments) {
                         if (accumulated + seg.len >= drawLen) {
@@ -2739,7 +3014,7 @@
                         }
                         accumulated += seg.len;
                     }
-                    
+
                     ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * 0.35})`;
                     ctx.lineWidth = 1.2;
                     ctx.stroke();
@@ -2765,14 +3040,14 @@
 
                     const path = circuitPaths[b.pathIndex];
                     const basePt = getPointAlongPath(path, blockProgress);
-                    
+
                     const px = lerp(path.points[0].x + b.ox, basePt.x, clamp01(blockProgress * 3));
                     const py = lerp(path.points[0].y + b.oy, basePt.y, clamp01(blockProgress * 3));
                     const blockAlpha = alpha * clamp01((1 - blockProgress) * 1.5);
 
                     ctx.fillStyle = b.color;
                     ctx.globalAlpha = blockAlpha;
-                    ctx.fillRect(px - b.size/2, py - b.size/2, b.size, b.size);
+                    ctx.fillRect(px - b.size / 2, py - b.size / 2, b.size, b.size);
                 });
                 ctx.restore();
             }
@@ -2782,19 +3057,19 @@
             // ─────────────────────────────────────────────────────────────
             function drawGlowM(alpha) {
                 if (alpha <= 0) return;
-                const BASE = Math.min(W,H) * 0.15;
+                const BASE = Math.min(W, H) * 0.15;
                 ctx.save();
-                ctx.font         = `700 ${BASE}px 'DM Serif Display', serif`;
-                ctx.textAlign    = 'center';
+                ctx.font = `700 ${BASE}px 'DM Serif Display', serif`;
+                ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillStyle    = '#FFFFFF';
-                ctx.shadowColor  = '#FFFFFF';
-                ctx.shadowBlur   = 65;
-                ctx.globalAlpha  = alpha;
-                ctx.fillText('M', W/2, H/2);
-                ctx.shadowBlur   = 130;
-                ctx.globalAlpha  = alpha * 0.35;
-                ctx.fillText('M', W/2, H/2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.shadowColor = '#FFFFFF';
+                ctx.shadowBlur = 65;
+                ctx.globalAlpha = alpha;
+                ctx.fillText('M', W / 2, H / 2);
+                ctx.shadowBlur = 130;
+                ctx.globalAlpha = alpha * 0.35;
+                ctx.fillText('M', W / 2, H / 2);
                 ctx.restore();
             }
 
@@ -2803,9 +3078,9 @@
             // ─────────────────────────────────────────────────────────────
             function runPreloaderTests() {
                 console.log('%c⚙️ PORTFOLIO DIAGNOSTICS & TEST SUITE', 'color: #C45C3E; font-weight: bold; font-size: 14px;');
-                
+
                 const results = [];
-                
+
                 // Test 1: Canvas & Context check
                 const canvasOk = canvas && canvas.tagName === 'CANVAS';
                 const ctxOk = ctx instanceof CanvasRenderingContext2D;
@@ -2821,7 +3096,7 @@
                 for (let i = 1; i < STAGE_T.length; i++) {
                     if (STAGE_T[i] <= STAGE_T[i - 1]) timingMonotonic = false;
                 }
-                results.push({ name: `Stage Time Bounds Monotonicity (total ${(STAGE_T[STAGE_T.length-1]/1000).toFixed(1)}s)`, pass: stagesOk && timingMonotonic });
+                results.push({ name: `Stage Time Bounds Monotonicity (total ${(STAGE_T[STAGE_T.length - 1] / 1000).toFixed(1)}s)`, pass: stagesOk && timingMonotonic });
 
                 // Test 4: Particle Node Structural Safety
                 const particlesOk = Array.isArray(particles) && particles.length === PARTICLE_COUNT;
@@ -2847,11 +3122,11 @@
                 // Test 6: Performance Loop Validation (FPS Calculation)
                 let frameTimes = [];
                 let testStartTime = performance.now();
-                
+
                 function measureFPS(t) {
                     frameTimes.push(t);
                     if (frameTimes.length > 30) frameTimes.shift();
-                    
+
                     const elapsed = performance.now() - testStartTime;
                     if (elapsed < 600) {
                         requestAnimationFrame(measureFPS);
@@ -2862,8 +3137,8 @@
                         }
                         const avgDiff = diffs.reduce((a, b) => a + b, 0) / diffs.length;
                         const fps = 1000 / avgDiff;
-                        const fpsOk = fps > 50; 
-                        
+                        const fpsOk = fps > 50;
+
                         console.log(`%c[${fpsOk ? 'PASS' : 'WARN'}] Render loop performance (${fps.toFixed(1)} FPS)`, `color: ${fpsOk ? '#4CAF50' : '#FF9800'}; font-weight: bold;`);
                     }
                 }
@@ -2920,7 +3195,7 @@
             Array.from(children).forEach((child, index) => {
                 // Remove legacy class if any, to avoid conflicts
                 child.classList.remove('fade-in');
-                
+
                 // Add standard reveal class and stagger delay
                 child.classList.add('reveal-up');
                 child.style.transitionDelay = `${index * 0.15}s`;
