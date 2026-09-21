@@ -21,16 +21,14 @@ const bootstrapCode = `
     document.close();
 `;
 
-console.log("Obfuscating bootstrap code...");
 const obfuscationResult = JavaScriptObfuscator.obfuscate(bootstrapCode, {
     compact: true,
     controlFlowFlattening: true,
-    controlFlowFlatteningThreshold: 1,
+    controlFlowFlatteningThreshold: 0.5,
     numbersToExpressions: true,
     simplify: true,
-    stringArrayShuffle: true,
-    splitStrings: true,
-    stringArrayThreshold: 1
+    stringArray: false, // Disable string array for massive base64 string
+    splitStrings: false // Disable string splitting to prevent OOM
 });
 
 const finalJs = obfuscationResult.getObfuscatedCode();
