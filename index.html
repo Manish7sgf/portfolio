@@ -139,7 +139,6 @@
         }
 
         .logo {
-            opacity: 0; /* Hidden initially for throw animation */
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -1377,28 +1376,6 @@
             display: block;
         }
 
-        #preloader-logo-wrap {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            border-radius: 24px;
-            overflow: hidden;
-            opacity: 0; /* JS will fade it in */
-            box-shadow: 0 10px 40px rgba(196, 92, 62, 0.4);
-            pointer-events: none;
-        }
-        
-        #preloader-logo-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.6);
-        }
-
         /* Prevent scroll during preloader active */
         body.preloader-active {
             overflow: hidden;
@@ -1465,9 +1442,6 @@
     <!-- Preloader / Intro Screen -->
     <div id="preloader" class="preloader">
         <canvas id="pl-canvas"></canvas>
-        <div id="preloader-logo-wrap">
-            <img src="dp/mv_logo.jpg" alt="MV Logo">
-        </div>
     </div>
 
     <!-- Navigation -->
@@ -2443,8 +2417,7 @@
             // 6   2.9 - 3.2 s   Letters shoot off; M blooms
             // 7   3.2 - 4.2 s   Glass shatter exit reveal
             // ─────────────────────────────────────────────────────────────
-            const STAGE_T = [0, 500, 1000, 1800, 3000];
-            let throwTriggered = false;
+            const STAGE_T = [0, 500, 1000, 1400, 1800, 2600, 2900, 3200, 4200];
             let stage = 0;
             let startTime = null;
             let raf;
@@ -2553,63 +2526,53 @@
                 ctx.fillRect(0, 0, W, H);
 
                 const matA = clamp01(easeOut(stageProgress(ms, 0))) * clamp01(easeOut(1 - stageProgress(ms, 2)));
-                const netA = clamp01(easeInOut(stageProgress(ms, 1)));
-                const gridA = clamp01(easeOut(stageProgress(ms, 2)));
+                const netA = clamp01(easeInOut(stageProgress(ms, 1))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
+                const gridA = clamp01(easeOut(stageProgress(ms, 2))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
 
                 drawMatrix(matA);
                 drawNetwork(netA);
                 drawGrid(gridA);
-                
-                const plLogoWrap = document.getElementById('preloader-logo-wrap');
-                if (plLogoWrap) {
-                    const logoFade = stageProgress(ms, 1);
-                    if (logoFade > 0 && !throwTriggered) {
-                        plLogoWrap.style.opacity = easeOut(logoFade);
+
+                // Stage 3: MV glitch & target HUD lock-on
+                if (ms >= STAGE_T[3] && ms < STAGE_T[5]) {
+                    const p3 = stageProgress(ms, 3);
+                    const mvA = clamp01(easeOut(p3));
+                    if (mvA < 0.5) {
+                        mvGlitch = lerp(24, 2, p3 * 2);
+                    } else {
+                        mvGlitch = Math.random() > 0.86 ? 4 + Math.random() * 12 : (Math.random() > 0.65 ? 1 : 0);
+                    }
+                    const mvFade = ms >= STAGE_T[4] ? clamp01(1 - stageProgress(ms, 4) * 8) : mvA;
+                    if (mvFade > 0.01) {
+                        if (!charsReady) buildCharPositions();
+                        drawInitialsGlitch(mvGlitch, mvFade);
+                        drawHUDLock(mvFade, p3);
                     }
                 }
 
-                if (ms >= STAGE_T[3] && !throwTriggered) {
-                    throwTriggered = true;
-                    cancelAnimationFrame(raf);
-                    triggerLogoThrow();
-                }
-            }
-            
-            function triggerLogoThrow() {
-                const plLogoWrap = document.getElementById('preloader-logo-wrap');
-                const targetLogo = document.querySelector('.logo');
-                
-                if (!plLogoWrap || !targetLogo) {
-                    document.body.classList.remove('preloader-active');
-                    document.body.classList.add('loaded');
-                    document.getElementById('preloader').style.display = 'none';
-                    return;
-                }
-                
-                // Fade out canvas background
-                const canvas = document.getElementById('pl-canvas');
-                gsap.to(canvas, { opacity: 0, duration: 0.8 });
-                
-                const targetRect = targetLogo.getBoundingClientRect();
-                
-                // Animate logo to target navbar position
-                gsap.to(plLogoWrap, {
-                    top: targetRect.top + targetRect.height / 2,
-                    left: targetRect.left + targetRect.width / 2,
-                    width: targetRect.width,
-                    height: targetRect.height,
-                    borderRadius: 8,
-                    duration: 1.2,
-                    ease: "power4.inOut",
-                    onComplete: () => {
-                        targetLogo.style.opacity = 1;
-                        document.body.classList.remove('preloader-active');
-                        document.body.classList.add('loaded');
-                        setTimeout(() => {
-                            document.getElementById('preloader').style.display = 'none';
-                        }, 50);
+                // Stages 4+5+6: spring name
+                if (ms >= STAGE_T[4] && ms < STAGE_T[7]) {
+                    if (!charsReady) {
+                        buildCharPositions();
                     }
-                });
+                    const shooting = ms >= STAGE_T[6];
+                    const shootP = stageProgress(ms, 6);
+                    drawSpringName(ms, now, shooting, shootP);
+                }
+
+                // Stage 7: Circuit flow reveal
+                if (ms >= STAGE_T[7]) {
+                    const p7 = stageProgress(ms, 7);
+                    if (!circuitInitialized) {
+                        initCircuitDissolve();
+                    }
+                    drawCircuitDissolve(p7);
+
+                    if (ms >= STAGE_T[8]) {
+                        cancelAnimationFrame(raf);
+                        preloader.style.display = 'none';
+                    }
+                }
             }
 
             // ─────────────────────────────────────────────────────────────
@@ -2824,9 +2787,71 @@
                 preloader.style.background = 'transparent';
                 preloader.style.transition = 'none';
 
-                // Trigger portfolio fade-in classes
+                // Free scroll immediately
                 document.body.classList.remove('preloader-active');
-                document.body.classList.add('loaded');
+                
+                // Hide navbar temporarily for the reveal
+                const navbar = document.getElementById('navbar');
+                navbar.style.opacity = '0';
+                
+                // --- Leaf Flight Logo Animation ---
+                const realLogo = document.querySelector('.logo');
+                const logoRect = realLogo.getBoundingClientRect();
+                
+                // Create clone for flight
+                const flyingLogo = realLogo.cloneNode(true);
+                flyingLogo.style.position = 'fixed';
+                flyingLogo.style.margin = '0';
+                flyingLogo.style.opacity = '1';
+                flyingLogo.style.zIndex = '10000';
+                
+                const centerX = window.innerWidth / 2 - logoRect.width / 2;
+                const centerY = window.innerHeight / 2 - logoRect.height / 2;
+                
+                gsap.set(flyingLogo, {
+                    left: 0,
+                    top: 0,
+                    x: centerX,
+                    y: centerY,
+                    scale: 3,
+                    rotation: -180,
+                    opacity: 0,
+                    transformOrigin: '50% 50%'
+                });
+                
+                document.body.appendChild(flyingLogo);
+                
+                const flightTl = gsap.timeline();
+                flightTl.to(flyingLogo, {
+                    opacity: 1,
+                    rotation: -10,
+                    duration: 0.6,
+                    ease: "back.out(1.5)"
+                })
+                .to(flyingLogo, {
+                    x: logoRect.left,
+                    duration: 1.8,
+                    ease: "power1.inOut"
+                }, "+=0.3")
+                .to(flyingLogo, {
+                    y: logoRect.top,
+                    duration: 1.8,
+                    ease: "back.in(1.2)"
+                }, "<")
+                .to(flyingLogo, {
+                    scale: 1,
+                    rotation: 360,
+                    duration: 1.8,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        flyingLogo.remove();
+                        navbar.style.transition = 'opacity 1s ease';
+                        navbar.style.opacity = '1';
+                        
+                        // Trigger portfolio fade-in classes after logo lands
+                        document.body.classList.add('loaded');
+                    }
+                }, "<");
 
                 // Generate circuit paths branching out orthogonally from center
                 const PATH_COUNT = 65;
