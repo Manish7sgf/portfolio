@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,9 +151,17 @@
         }
 
         @keyframes pulseLogo {
-            0% { transform: scale(1.6); }
-            50% { transform: scale(1.75); }
-            100% { transform: scale(1.6); }
+            0% {
+                transform: scale(1.6);
+            }
+
+            50% {
+                transform: scale(1.75);
+            }
+
+            100% {
+                transform: scale(1.6);
+            }
         }
 
         .logo img {
@@ -1422,14 +1431,17 @@
             opacity: 0;
             transform: translateY(35px);
         }
+
         .reveal-scale {
             opacity: 0;
             transform: scale(0.95) translateY(20px);
         }
+
         .reveal-left {
             opacity: 0;
             transform: translateX(-40px);
         }
+
         .reveal-right {
             opacity: 0;
             transform: translateX(40px);
@@ -1706,9 +1718,9 @@
                     <div class="project-header">
                         <span class="project-year">2026</span>
                         <div class="project-links">
-                            <a href="https://github.com/Manish7sgf/Pneumonia-detector" target="_blank" title="GitHub"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="currentColor">
+                            <a href="https://github.com/Manish7sgf/Pneumonia-detector" target="_blank"
+                                title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg></a>
@@ -1716,7 +1728,9 @@
                     </div>
                     <div class="project-body">
                         <h3>PneumoScan AI — Chest X-Ray Analyzer</h3>
-                        <p>Web app that analyzes chest X-ray images and predicts pneumonia or normal lungs. Built with a React frontend, FastAPI backend, and a trained ResNet50 model, providing confidence scores and heatmap-based visual explanations.</p>
+                        <p>Web app that analyzes chest X-ray images and predicts pneumonia or normal lungs. Built with a
+                            React frontend, FastAPI backend, and a trained ResNet50 model, providing confidence scores
+                            and heatmap-based visual explanations.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">FastAPI</span>
@@ -2123,19 +2137,19 @@
 
     <script>
         // TagCloud Initialization
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const mySkills = [
-                'Python', 'JavaScript', 'TypeScript', 'SQL', 'C/C++', 'HTML/CSS',
+                'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML/CSS',
                 'FastAPI', 'Flask', 'Node.js', 'Express', 'React', 'scikit-learn',
                 'Prompt Engineering', 'Bio_ClinicalBERT', 'Ollama', 'LLaMA', 'Gemini API', 'OpenRouter', 'LangChain',
                 'GitHub Actions', 'n8n', 'ngrok', 'Docker', 'Vercel', 'Render', 'VS Code', 'Git',
                 'SQLite', 'PostgreSQL', 'Firebase',
                 'pandas', 'numpy', 'XGBoost', 'K-Means', 'Power BI'
             ];
-            
+
             // Adjust radius based on screen width for mobile responsiveness
             const radius = window.innerWidth < 768 ? 150 : 250;
-            
+
             TagCloud('.tagcloud', mySkills, {
                 radius: radius,
                 maxSpeed: 'fast',
@@ -2789,15 +2803,15 @@
 
                 // Free scroll immediately
                 document.body.classList.remove('preloader-active');
-                
+
                 // Hide navbar temporarily for the reveal
                 const navbar = document.getElementById('navbar');
                 navbar.style.opacity = '0';
-                
+
                 // --- High-Speed Motion Graphics Logo Flight ---
                 const realLogo = document.querySelector('.logo');
                 const logoRect = realLogo.getBoundingClientRect();
-                
+
                 // Create clone for flight
                 const flyingLogo = realLogo.cloneNode(true);
                 flyingLogo.style.position = 'fixed';
@@ -2808,10 +2822,10 @@
                 flyingLogo.style.boxShadow = '0 0 35px rgba(196, 92, 62, 0.9), 0 0 70px rgba(196, 92, 62, 0.5)';
                 flyingLogo.style.border = '1.5px solid rgba(255, 255, 255, 0.8)';
                 flyingLogo.style.borderRadius = '10px';
-                
+
                 const centerX = window.innerWidth / 2 - logoRect.width / 2;
                 const centerY = window.innerHeight / 2 - logoRect.height / 2;
-                
+
                 // Container for motion graphics particle trail & shockwaves
                 const fxContainer = document.createElement('div');
                 fxContainer.style.position = 'fixed';
@@ -2839,14 +2853,14 @@
                     wave.style.pointerEvents = 'none';
                     fxContainer.appendChild(wave);
 
-                    gsap.fromTo(wave, 
-                        { scale: 0.1, opacity: 1 }, 
-                        { 
-                            scale: maxScale || 3.5, 
-                            opacity: 0, 
-                            duration: duration || 0.6, 
-                            ease: 'power2.out', 
-                            onComplete: () => wave.remove() 
+                    gsap.fromTo(wave,
+                        { scale: 0.1, opacity: 1 },
+                        {
+                            scale: maxScale || 3.5,
+                            opacity: 0,
+                            duration: duration || 0.6,
+                            ease: 'power2.out',
+                            onComplete: () => wave.remove()
                         }
                     );
                 }
@@ -2868,8 +2882,8 @@
                     p.style.marginLeft = `-${size / 2}px`;
                     p.style.marginTop = `-${size / 2}px`;
                     p.style.borderRadius = '50%';
-                    p.style.background = Math.random() > 0.4 
-                        ? 'radial-gradient(circle, #FFFFFF 0%, #C45C3E 70%, transparent 100%)' 
+                    p.style.background = Math.random() > 0.4
+                        ? 'radial-gradient(circle, #FFFFFF 0%, #C45C3E 70%, transparent 100%)'
                         : 'radial-gradient(circle, #FFA270 0%, rgba(196,92,62,0.6) 80%, transparent 100%)';
                     p.style.boxShadow = '0 0 10px #C45C3E';
                     p.style.pointerEvents = 'none';
@@ -2902,11 +2916,11 @@
                     opacity: 0,
                     transformOrigin: '50% 50%'
                 });
-                
+
                 document.body.appendChild(flyingLogo);
-                
+
                 const flightTl = gsap.timeline();
-                
+
                 // 1. Explosive Center Spawn with Sonic Shockwave (0.35s)
                 flightTl.to(flyingLogo, {
                     opacity: 1,
@@ -2919,41 +2933,41 @@
                         createShockwave(window.innerWidth / 2, window.innerHeight / 2, 6.0, '#C45C3E', 0.7);
                     }
                 })
-                // 2. High-Speed Kinetic Wind Throw / Arc to Target (Snappy 0.85s)
-                .to(flyingLogo, {
-                    x: logoRect.left,
-                    y: logoRect.top,
-                    scale: 1,
-                    rotation: 720,
-                    duration: 0.85,
-                    ease: "power3.inOut",
-                    onUpdate: function() {
-                        const curX = gsap.getProperty(flyingLogo, "x") + (logoRect.width * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
-                        const curY = gsap.getProperty(flyingLogo, "y") + (logoRect.height * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
-                        spawnTrailParticle(curX, curY, gsap.getProperty(flyingLogo, "scale"));
-                    }
-                }, "+=0.05")
-                // 3. Impact Touchdown at Navbar
-                .add(() => {
-                    // Landing Impact Shockwaves
-                    createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 2.8, '#FFA270', 0.45);
-                    createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 4.0, '#C45C3E', 0.6);
+                    // 2. High-Speed Kinetic Wind Throw / Arc to Target (Snappy 0.85s)
+                    .to(flyingLogo, {
+                        x: logoRect.left,
+                        y: logoRect.top,
+                        scale: 1,
+                        rotation: 720,
+                        duration: 0.85,
+                        ease: "power3.inOut",
+                        onUpdate: function () {
+                            const curX = gsap.getProperty(flyingLogo, "x") + (logoRect.width * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
+                            const curY = gsap.getProperty(flyingLogo, "y") + (logoRect.height * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
+                            spawnTrailParticle(curX, curY, gsap.getProperty(flyingLogo, "scale"));
+                        }
+                    }, "+=0.05")
+                    // 3. Impact Touchdown at Navbar
+                    .add(() => {
+                        // Landing Impact Shockwaves
+                        createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 2.8, '#FFA270', 0.45);
+                        createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 4.0, '#C45C3E', 0.6);
 
-                    flyingLogo.remove();
-                    fxContainer.remove();
+                        flyingLogo.remove();
+                        fxContainer.remove();
 
-                    navbar.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                    navbar.style.opacity = '1';
+                        navbar.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                        navbar.style.opacity = '1';
 
-                    // Animate real logo impact bounce & luminous flash
-                    gsap.fromTo(realLogo, 
-                        { scale: 1.4, filter: 'brightness(2) drop-shadow(0 0 15px #C45C3E)' }, 
-                        { scale: 1, filter: 'none', duration: 0.5, ease: 'back.out(2.5)' }
-                    );
-                    
-                    // Trigger portfolio fade-in classes after logo lands
-                    document.body.classList.add('loaded');
-                });
+                        // Animate real logo impact bounce & luminous flash
+                        gsap.fromTo(realLogo,
+                            { scale: 1.4, filter: 'brightness(2) drop-shadow(0 0 15px #C45C3E)' },
+                            { scale: 1, filter: 'none', duration: 0.5, ease: 'back.out(2.5)' }
+                        );
+
+                        // Trigger portfolio fade-in classes after logo lands
+                        document.body.classList.add('loaded');
+                    });
 
                 // Generate circuit paths branching out orthogonally from center
                 const PATH_COUNT = 65;
@@ -3270,7 +3284,7 @@
                 }
             });
             tlHero.to(".hero-content", { y: -100, opacity: 0, ease: "none" }, 0)
-                  .to(".hero-card", { y: -50, rotation: 5, ease: "none" }, 0);
+                .to(".hero-card", { y: -50, rotation: 5, ease: "none" }, 0);
 
             // 3. Grid Section Parallax (Projects, Certs, Achievements)
             const gridCards = gsap.utils.toArray('.project-card, .cert-card, .achievement-card');
@@ -3335,20 +3349,6 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('show')) {
                 closeLightbox();
-            }
-        });
-    </script>
-    <script>
-        // Security: Disable Right-Click and DevTools Shortcuts
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('keydown', event => {
-            // Prevent F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J, Ctrl+U
-            if (
-                event.keyCode === 123 || 
-                (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 67 || event.keyCode === 74)) ||
-                (event.ctrlKey && event.keyCode === 85)
-            ) {
-                event.preventDefault();
             }
         });
     </script>
