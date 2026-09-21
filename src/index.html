@@ -1396,25 +1396,25 @@
         body.loaded .hero-content h1 {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 0.9s;
+            transition-delay: 0.1s;
         }
 
         body.loaded .hero-desc {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 1.1s;
+            transition-delay: 0.25s;
         }
 
         body.loaded .hero-actions {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 1.3s;
+            transition-delay: 0.4s;
         }
 
         body.loaded .hero-visual {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 1.0s;
+            transition-delay: 0.2s;
         }
 
         /* Scroll reveal initial states (Animations handled by GSAP) */
@@ -2778,7 +2778,7 @@
             }
 
             // ─────────────────────────────────────────────────────────────
-            // 8c. AI CIRCUIT DISSOLVE TRANSITION ENGINE
+            // 8c. AI CIRCUIT DISSOLVE & HIGH-SPEED MOTION GRAPHICS LOGO THROW
             // ─────────────────────────────────────────────────────────────
             function initCircuitDissolve() {
                 circuitInitialized = true;
@@ -2794,7 +2794,7 @@
                 const navbar = document.getElementById('navbar');
                 navbar.style.opacity = '0';
                 
-                // --- Leaf Flight Logo Animation ---
+                // --- High-Speed Motion Graphics Logo Flight ---
                 const realLogo = document.querySelector('.logo');
                 const logoRect = realLogo.getBoundingClientRect();
                 
@@ -2804,16 +2804,100 @@
                 flyingLogo.style.margin = '0';
                 flyingLogo.style.opacity = '1';
                 flyingLogo.style.zIndex = '10000';
+                flyingLogo.style.willChange = 'transform, opacity, filter';
+                flyingLogo.style.boxShadow = '0 0 35px rgba(196, 92, 62, 0.9), 0 0 70px rgba(196, 92, 62, 0.5)';
+                flyingLogo.style.border = '1.5px solid rgba(255, 255, 255, 0.8)';
+                flyingLogo.style.borderRadius = '10px';
                 
                 const centerX = window.innerWidth / 2 - logoRect.width / 2;
                 const centerY = window.innerHeight / 2 - logoRect.height / 2;
                 
+                // Container for motion graphics particle trail & shockwaves
+                const fxContainer = document.createElement('div');
+                fxContainer.style.position = 'fixed';
+                fxContainer.style.top = '0';
+                fxContainer.style.left = '0';
+                fxContainer.style.width = '100%';
+                fxContainer.style.height = '100%';
+                fxContainer.style.pointerEvents = 'none';
+                fxContainer.style.zIndex = '9999';
+                document.body.appendChild(fxContainer);
+
+                // Helper: Shockwave Ring
+                function createShockwave(x, y, maxScale, color, duration) {
+                    const wave = document.createElement('div');
+                    wave.style.position = 'fixed';
+                    wave.style.left = `${x}px`;
+                    wave.style.top = `${y}px`;
+                    wave.style.width = '60px';
+                    wave.style.height = '60px';
+                    wave.style.marginLeft = '-30px';
+                    wave.style.marginTop = '-30px';
+                    wave.style.borderRadius = '50%';
+                    wave.style.border = `2px solid ${color || '#C45C3E'}`;
+                    wave.style.boxShadow = `0 0 20px ${color || '#C45C3E'}`;
+                    wave.style.pointerEvents = 'none';
+                    fxContainer.appendChild(wave);
+
+                    gsap.fromTo(wave, 
+                        { scale: 0.1, opacity: 1 }, 
+                        { 
+                            scale: maxScale || 3.5, 
+                            opacity: 0, 
+                            duration: duration || 0.6, 
+                            ease: 'power2.out', 
+                            onComplete: () => wave.remove() 
+                        }
+                    );
+                }
+
+                // Helper: Motion Trail Particle Spawner
+                let lastSpawnTime = 0;
+                function spawnTrailParticle(x, y, scale) {
+                    const nowTime = performance.now();
+                    if (nowTime - lastSpawnTime < 16) return; // ~60fps cap
+                    lastSpawnTime = nowTime;
+
+                    const p = document.createElement('div');
+                    p.style.position = 'fixed';
+                    p.style.left = `${x}px`;
+                    p.style.top = `${y}px`;
+                    const size = 6 + Math.random() * 8;
+                    p.style.width = `${size}px`;
+                    p.style.height = `${size}px`;
+                    p.style.marginLeft = `-${size / 2}px`;
+                    p.style.marginTop = `-${size / 2}px`;
+                    p.style.borderRadius = '50%';
+                    p.style.background = Math.random() > 0.4 
+                        ? 'radial-gradient(circle, #FFFFFF 0%, #C45C3E 70%, transparent 100%)' 
+                        : 'radial-gradient(circle, #FFA270 0%, rgba(196,92,62,0.6) 80%, transparent 100%)';
+                    p.style.boxShadow = '0 0 10px #C45C3E';
+                    p.style.pointerEvents = 'none';
+                    fxContainer.appendChild(p);
+
+                    // Scatter velocity
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = 10 + Math.random() * 25;
+                    const tx = Math.cos(angle) * dist;
+                    const ty = Math.sin(angle) * dist;
+
+                    gsap.to(p, {
+                        x: tx,
+                        y: ty,
+                        scale: 0.1,
+                        opacity: 0,
+                        duration: 0.35 + Math.random() * 0.25,
+                        ease: 'power2.out',
+                        onComplete: () => p.remove()
+                    });
+                }
+
                 gsap.set(flyingLogo, {
                     left: 0,
                     top: 0,
                     x: centerX,
                     y: centerY,
-                    scale: 3,
+                    scale: 3.2,
                     rotation: -180,
                     opacity: 0,
                     transformOrigin: '50% 50%'
@@ -2822,36 +2906,54 @@
                 document.body.appendChild(flyingLogo);
                 
                 const flightTl = gsap.timeline();
+                
+                // 1. Explosive Center Spawn with Sonic Shockwave (0.35s)
                 flightTl.to(flyingLogo, {
                     opacity: 1,
+                    scale: 3.5,
                     rotation: -10,
-                    duration: 0.6,
-                    ease: "back.out(1.5)"
+                    duration: 0.35,
+                    ease: "back.out(2)",
+                    onStart: () => {
+                        createShockwave(window.innerWidth / 2, window.innerHeight / 2, 4.5, '#FFFFFF', 0.5);
+                        createShockwave(window.innerWidth / 2, window.innerHeight / 2, 6.0, '#C45C3E', 0.7);
+                    }
                 })
+                // 2. High-Speed Kinetic Wind Throw / Arc to Target (Snappy 0.85s)
                 .to(flyingLogo, {
                     x: logoRect.left,
-                    duration: 1.8,
-                    ease: "power1.inOut"
-                }, "+=0.3")
-                .to(flyingLogo, {
                     y: logoRect.top,
-                    duration: 1.8,
-                    ease: "back.in(1.2)"
-                }, "<")
-                .to(flyingLogo, {
                     scale: 1,
-                    rotation: 360,
-                    duration: 1.8,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        flyingLogo.remove();
-                        navbar.style.transition = 'opacity 1s ease';
-                        navbar.style.opacity = '1';
-                        
-                        // Trigger portfolio fade-in classes after logo lands
-                        document.body.classList.add('loaded');
+                    rotation: 720,
+                    duration: 0.85,
+                    ease: "power3.inOut",
+                    onUpdate: function() {
+                        const curX = gsap.getProperty(flyingLogo, "x") + (logoRect.width * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
+                        const curY = gsap.getProperty(flyingLogo, "y") + (logoRect.height * (gsap.getProperty(flyingLogo, "scale") || 1)) / 2;
+                        spawnTrailParticle(curX, curY, gsap.getProperty(flyingLogo, "scale"));
                     }
-                }, "<");
+                }, "+=0.05")
+                // 3. Impact Touchdown at Navbar
+                .add(() => {
+                    // Landing Impact Shockwaves
+                    createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 2.8, '#FFA270', 0.45);
+                    createShockwave(logoRect.left + logoRect.width / 2, logoRect.top + logoRect.height / 2, 4.0, '#C45C3E', 0.6);
+
+                    flyingLogo.remove();
+                    fxContainer.remove();
+
+                    navbar.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                    navbar.style.opacity = '1';
+
+                    // Animate real logo impact bounce & luminous flash
+                    gsap.fromTo(realLogo, 
+                        { scale: 1.4, filter: 'brightness(2) drop-shadow(0 0 15px #C45C3E)' }, 
+                        { scale: 1, filter: 'none', duration: 0.5, ease: 'back.out(2.5)' }
+                    );
+                    
+                    // Trigger portfolio fade-in classes after logo lands
+                    document.body.classList.add('loaded');
+                });
 
                 // Generate circuit paths branching out orthogonally from center
                 const PATH_COUNT = 65;
