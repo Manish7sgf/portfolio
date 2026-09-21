@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manish7sgf/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Manish7sgf/portfolio/issues"
+  },
+  "homepage": "https://github.com/Manish7sgf/portfolio#readme",
+  "devDependencies": {
+    "javascript-obfuscator": "^5.8.0"
+  }
+}

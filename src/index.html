@@ -1,0 +1,3255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish Varman M — AI & Full Stack Developer</title>
+    <meta name="description"
+        content="Portfolio of Manish Varman M, an AI & Full Stack Developer building intelligent systems. Explore projects, skills, and experience.">
+    <meta name="keywords"
+        content="Manish Varman M, AI Developer, Full Stack Developer, portfolio, Machine Learning, FastAPI, React, Node.js">
+    <meta name="author" content="Manish Varman M">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Manish7sgf">
+    <meta property="og:title" content="Manish Varman M — AI & Full Stack Developer">
+    <meta property="og:description"
+        content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Manish7sgf/portfolio/main/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Manish Varman M — AI & Full Stack Developer">
+    <meta property="twitter:description"
+        content="Final-year B.Tech student in AI & Data Science building intelligent systems that ship.">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FAF9F7;
+            --bg-secondary: #F0EEEA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1C1C1C;
+            --text-secondary: #5C5C5C;
+            --text-muted: #8A8A8A;
+            --accent: #C45C3E;
+            --accent-hover: #A84D32;
+            --border: #E5E3DF;
+            --border-light: #F0EEEA;
+            --shadow: rgba(28, 28, 28, 0.06);
+            --shadow-hover: rgba(28, 28, 28, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 249, 247, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 1px 20px var(--shadow);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(196, 92, 62, 0.15);
+        }
+
+        @keyframes pulseLogo {
+            0% { transform: scale(1.6); }
+            50% { transform: scale(1.75); }
+            100% { transform: scale(1.6); }
+        }
+
+        .logo img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transform: scale(1.6);
+            animation: pulseLogo 3s infinite ease-in-out;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 2rem 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 560px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-label .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero h1 {
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.2rem;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(196, 92, 62, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 8px 40px var(--shadow);
+        }
+
+        .hero-card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .hero-card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-card-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-card-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .hero-card-info h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero-card-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .code-block {
+            background: #1C1C1C;
+            border-radius: 10px;
+            padding: 1.25rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.7;
+            color: #E8E6E3;
+            overflow-x: auto;
+        }
+
+        .code-block .kw {
+            color: #C45C3E;
+        }
+
+        .code-block .str {
+            color: #A8C686;
+        }
+
+        .code-block .fn {
+            color: #7DB4D4;
+        }
+
+        .code-block .cm {
+            color: #6B6B6B;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-header h2 {
+            max-width: 500px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 380px;
+            font-size: 0.95rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 24px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .highlight-card .num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skills */
+        .skills-section {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient glow effect inside card on hover */
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(196, 92, 62, 0.04), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
+        }
+
+        .skill-category:hover {
+            box-shadow: 0 12px 30px var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: rgba(196, 92, 62, 0.2);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-category:hover .skill-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .skill-category h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-chip {
+            display: inline-block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            user-select: none;
+        }
+
+        .skill-chip:hover {
+            transform: scale(1.05) translateY(-1px);
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 10px rgba(196, 92, 62, 0.2);
+        }
+
+        /* TagCloud Styles */
+        .tagcloud-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            width: 100%;
+            height: 400px;
+            max-width: 800px;
+        }
+
+        .tagcloud {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .tagcloud--item:hover {
+            color: var(--accent);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--border);
+        }
+
+        .project-header {
+            padding: 1.8rem 1.8rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .project-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .project-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .project-body {
+            padding: 1.2rem 1.8rem 1.5rem;
+            flex: 1;
+        }
+
+        .project-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-footer {
+            padding: 1rem 1.8rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .metric-icon {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .metric span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Featured Project */
+        .featured-project {
+            background: var(--text-primary);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-project .label {
+            color: var(--accent);
+        }
+
+        .featured-project h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0.8rem 0 1rem;
+        }
+
+        .featured-project p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-project .btn-primary {
+            background: var(--accent);
+        }
+
+        .featured-project .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .featured-project .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .featured-visual {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+
+        .featured-visual .code-block {
+            background: #141414;
+            font-size: 0.72rem;
+        }
+
+        /* Experience & Education */
+        .timeline-section {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1.5px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            padding-left: 2.5rem;
+            padding-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4.5px;
+            top: 0.4rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .timeline-item.current::before {
+            background: var(--bg-secondary);
+            border: 3px solid var(--accent);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-header h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-org {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .timeline-desc ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .timeline-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .cert-img-container {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cert-card:hover .cert-img {
+            transform: scale(1.05);
+        }
+
+        .cert-info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .cert-card .cert-org {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .cert-card p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: auto;
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.8rem;
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: rgba(196, 92, 62, 0.08);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 28, 28, 0.95);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-modal.show .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lightbox-caption {
+            color: #FFFFFF;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 2rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+        }
+
+        .lightbox-close:hover {
+            color: #FFFFFF;
+        }
+
+        /* Achievements */
+        .achievements-section {
+            background: var(--bg-secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.4rem 1.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(196, 92, 62, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .achievement-content h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .achievement-content p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact */
+        .contact-section {
+            padding-bottom: 60px;
+        }
+
+        .contact-card {
+            background: var(--text-primary);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-card h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.6rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-primary);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1.2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(6.5px) rotate(45deg);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-6.5px) rotate(-45deg);
+            }
+
+            .hero {
+                padding: 100px 1.5rem 60px;
+            }
+
+            section {
+                padding: 60px 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-primary);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1.2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(6.5px) rotate(45deg);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-6.5px) rotate(-45deg);
+            }
+
+            .hero {
+                padding: 100px 1.5rem 60px;
+            }
+
+            section {
+                padding: 60px 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                max-width: 100%;
+            }
+        }
+
+        /* Preloader Screen */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #080808;
+            z-index: 9999;
+            overflow: hidden;
+            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+
+        .preloader.fade-out {
+            transform: translateY(-100%);
+        }
+
+        #pl-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Prevent scroll during preloader active */
+        body.preloader-active {
+            overflow: hidden;
+        }
+
+
+
+        /* Hero entrance staggered animation states */
+        .hero-content h1,
+        .hero-desc,
+        .hero-actions,
+        .hero-visual {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.loaded .hero-content h1 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        body.loaded .hero-desc {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        body.loaded .hero-actions {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+
+        body.loaded .hero-visual {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.0s;
+        }
+
+        /* Scroll reveal initial states (Animations handled by GSAP) */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+    </style>
+</head>
+
+<body class="preloader-active">
+
+    <!-- Preloader / Intro Screen -->
+    <div id="preloader" class="preloader">
+        <canvas id="pl-canvas"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <img src="dp/mv_logo.jpg" alt="MV Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobile()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1>Building <em>intelligent</em> systems that ship.</h1>
+                <p class="hero-desc">
+                    Final-year B.Tech student in AI & Data Science. I build and deploy full-stack web applications, REST
+                    APIs, and AI/ML-powered systems — from autonomous CI/CD agents to medical symptom assessment
+                    chatbots.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="CV/Manish_Varman_Resume (1).pdf" target="_blank" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-file-text">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Resume
+                    </a>
+                    <a href="mailto:manishvarman5@gmail.com" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-avatar">
+                            <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM (1).jpeg" alt="Manish Varman M"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <div class="hero-card-info">
+                            <h4>Manish Varman M</h4>
+                            <p>AI & Full Stack Developer</p>
+                        </div>
+                    </div>
+                    <div class="hero-card-image">
+                        <img src="dp/WhatsApp Image 2026-07-04 at 9.58.33 PM.jpeg" alt="Manish Varman M">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">About Me</p>
+                    <h2>Engineer by training.<br>Builder by nature.</h2>
+                </div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <p>I'm a <strong>final-year B.Tech student</strong> in Artificial Intelligence & Data Science at Dr.
+                        N.G.P. Institute of Technology, Coimbatore. With a CGPA of 7.5, I've spent the last few years
+                        translating classroom theory into production-ready systems.</p>
+                    <p>My work spans <strong>full-stack web development</strong>, <strong>REST API design</strong>, and
+                        <strong>AI/ML integration</strong> — from building autonomous CI/CD agents that self-heal
+                        pipeline failures to deploying multilingual health chatbots serving low-literacy populations
+                        across India.
+                    </p>
+                    <p>I believe in <strong>shipping fast, iterating faster</strong>, and building tools that solve real
+                        problems. Every project in my portfolio is live, deployed, and documented.</p>
+                    <div class="about-actions reveal-up"
+                        style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="CV/Manish_Varman_Resume (1).pdf" target="_blank" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-eye">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            View Resume
+                        </a>
+                        <a href="CV/Manish_Varman_Resume (1).pdf" download="Manish_Varman_Resume.pdf"
+                            class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-download">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="about-highlights stagger-list">
+                    <div class="highlight-card">
+                        <div class="num">10+</div>
+                        <p>Production-ready projects built and deployed</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="num">5+</div>
+                        <p>Indian languages supported in my health chatbot</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="num">&lt;2min</div>
+                        <p>Mean time-to-recovery for my CI/CD agent</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="num">98%</div>
+                        <p>Score in NPTEL HCI — Top 5% nationally</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills-section">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">Technical Skills</p>
+                    <h2>Tools I work with daily.</h2>
+                </div>
+            </div>
+            <div class="tagcloud-wrap reveal-scale">
+                <span class="tagcloud"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">Selected Projects</p>
+                    <h2>Shipped, deployed,<br>and documented.</h2>
+                </div>
+                <p>Each project below is production-ready, with live demos and source code available on GitHub.</p>
+            </div>
+
+            <!-- Featured: HealBot -->
+            <div class="featured-project reveal-scale">
+                <div>
+                    <p class="label">Featured Project</p>
+                    <h3>HealBot — Self-Healing CI/CD Agent</h3>
+                    <p>An autonomous CI/CD agent that detects pipeline failures and auto-generates fix patches, reducing
+                        mean time-to-recovery to under 2 minutes. Built with Node.js/Express, n8n workflows, Ollama LLM,
+                        and GitHub Actions.</p>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem;">Demoed at Nandha
+                        College 24-Hour Hackathon, Erode (2026)</p>
+                    <div class="hero-actions">
+                        <a href="https://github.com/Manish7sgf/healbot-demo" target="_blank"
+                            class="btn btn-primary">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="featured-visual">
+                    <div class="code-block">
+                        <span class="cm">// HealBot Architecture</span>
+                        <span class="kw">const</span> <span class="fn">healBot</span> = {
+                        detect: <span class="str">"GitHub Actions webhook"</span>,
+                        analyze: <span class="str">"Ollama LLM error parsing"</span>,
+                        patch: <span class="str">"Auto-generate fix PR"</span>,
+                        deploy: <span class="str">"One-click re-run"</span>,
+                        dashboard: <span class="str">"Real-time job state"</span>
+                        };
+                        <span class="cm">// MTTR: &lt; 2 minutes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- RetailIQ -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2026</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/Retail-E-commerce-Customer-Behavior-Analysis"
+                                target="_blank" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>RetailIQ — Customer Intelligence Platform</h3>
+                        <p>Full-stack customer analytics with FastAPI backend (15+ REST endpoints), React+Vite frontend
+                            with Chart.js dashboards. Features XGBoost churn prediction, K-Means RFM segmentation, CLV
+                            forecasting, and hybrid recommendations.</p>
+                        <div class="project-tags">
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">React</span>
+                            <span class="tag">XGBoost</span>
+                            <span class="tag">scikit-learn</span>
+                            <span class="tag">Chart.js</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>15+ API endpoints</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>Vercel + Render</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MediMate -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2025</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/Medimate" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>MediMate — AI Medical Symptom Assessment</h3>
+                        <p>A 5-state conversational intake pipeline that converts free-text symptoms into structured
+                            diagnostic features using Bio_ClinicalBERT. Includes red-flag emergency detection and
+                            human-confirmation checkpoints for clinical safety.</p>
+                        <div class="project-tags">
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Bio_ClinicalBERT</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>5-state pipeline</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>Clinical safety</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PneumoScan AI -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2026</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/Pneumonia-detector" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>PneumoScan AI — Chest X-Ray Analyzer</h3>
+                        <p>Web app that analyzes chest X-ray images and predicts pneumonia or normal lungs. Built with a React frontend, FastAPI backend, and a trained ResNet50 model, providing confidence scores and heatmap-based visual explanations.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">ResNet50</span>
+                            <span class="tag">Deep Learning</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>Visual Explanations</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>ResNet50 Model</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI-Passport -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2026</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/AI-Passport" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>AI-Passport — AI Employability Ecosystem</h3>
+                        <p>Full-stack AI employability platform with Resume Analyzer, Job Matcher, and Career Roadmap
+                            Generator using Nvidia NIM / LLaMA 3.1 70B. React + Vite + Zustand frontend, Node.js +
+                            Express + Neon PostgreSQL backend.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Vite</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Neon PostgreSQL</span>
+                            <span class="tag">Nvidia NIM</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>CodeZap Hackathon</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>Descience OSS</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JARVIS -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2024</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/smart-assistant" target="_blank" title="GitHub"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>JARVIS — Offline Bilingual Voice Assistant</h3>
+                        <p>Locally hosted Flask web app with speech recognition, text-to-speech, and LLM integration —
+                            zero cloud dependency. Bilingual English-Tamil support, OpenCV + MediaPipe gesture control,
+                            and REST API for system commands.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">SpeechRecognition</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">MediaPipe</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>100% Offline</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>Gesture Control</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offline AI Chatbot -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="project-year">2025</span>
+                        <div class="project-links">
+                            <a href="https://github.com/Manish7sgf/AI-Powered-Chat-Bot-" target="_blank"
+                                title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Offline AI Chatbot — Local LLM</h3>
+                        <p>Deployed Gemma model using llamafile.exe for fully offline inference with zero cloud
+                            dependency. Integrated via local API calls from Python frontend. Demonstrates practical
+                            knowledge of quantized model execution and privacy-first AI.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Gemma</span>
+                            <span class="tag">llamafile</span>
+                            <span class="tag">Local REST API</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-icon">●</span><span>Zero cloud</span></div>
+                            <div class="metric"><span class="metric-icon">●</span><span>Privacy-first</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" class="timeline-section">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">Experience & Education</p>
+                    <h2>Where I've been<br>and what I've done.</h2>
+                </div>
+            </div>
+            <div class="timeline stagger-list">
+                <div class="timeline-item current">
+                    <div class="timeline-header">
+                        <h4>B.Tech — Artificial Intelligence & Data Science</h4>
+                        <span class="timeline-date">2023 — 2027</span>
+                    </div>
+                    <p class="timeline-org">Dr. N.G.P. Institute of Technology, Coimbatore</p>
+                    <div class="timeline-desc">
+                        <p>CGPA: 7.4. Building production-ready AI/ML systems, full-stack web applications, and
+                            participating in national hackathons.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h4>Web & AI Development Intern</h4>
+                        <span class="timeline-date">2025 · 15 Days</span>
+                    </div>
+                    <p class="timeline-org">Blue IT Solutions — On-site</p>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Designed and built a customised web-based AI assistant interface</li>
+                            <li>Applied front-end design principles and real-world API integration workflows</li>
+                            <li>Gained hands-on exposure to end-to-end product development: UI design, backend logic,
+                                and deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h4>Higher Secondary Education (HSE)</h4>
+                        <span class="timeline-date">2022 — 2023</span>
+                    </div>
+                    <p class="timeline-org">Kongu Vellalar Matric. Hr. Sec. School, Perundurai</p>
+                    <div class="timeline-desc">
+                        <p>Score: 73%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">Certifications</p>
+                    <h2>Credentials that back<br>the craft.</h2>
+                </div>
+            </div>
+            <div class="certs-grid stagger-list">
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/NPTEL(HCI).jpeg', 'Human Computer Interaction — NPTEL · IIT Madras (Score: 98%)')">
+                    <div class="cert-img-container">
+                        <img src="certifications/NPTEL(HCI).jpeg" alt="Human Computer Interaction" class="cert-img"
+                            loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">NPTEL · IIT Madras</div>
+                        <h4>Human Computer Interaction</h4>
+                        <p>Comprehensive course covering user interface design principles, cognitive models, user
+                            evaluation, and interactive system prototyping.</p>
+                        <div class="cert-badge">Score: 98% · Top 5%</div>
+                    </div>
+                </div>
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/Intro-cloud-computing.jpeg', 'Introduction to Cloud Computing — Simplilearn')">
+                    <div class="cert-img-container">
+                        <img src="certifications/Intro-cloud-computing.jpeg" alt="Introduction to Cloud Computing"
+                            class="cert-img" loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">Simplilearn</div>
+                        <h4>Introduction to Cloud Computing</h4>
+                        <p>Foundational concepts of cloud architecture, virtualization, service models (IaaS/PaaS/SaaS),
+                            and distributed computing infrastructure.</p>
+                        <div class="cert-badge">Completed</div>
+                    </div>
+                </div>
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/PowerBI.jpeg', 'Power BI for Beginners — Simplilearn')">
+                    <div class="cert-img-container">
+                        <img src="certifications/PowerBI.jpeg" alt="Power BI for Beginners" class="cert-img"
+                            loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">Simplilearn</div>
+                        <h4>Power BI for Beginners</h4>
+                        <p>Data visualization, dashboard design, DAX queries, and connecting multiple structured data
+                            sources for retail analysis.</p>
+                        <div class="cert-badge">Completed</div>
+                    </div>
+                </div>
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/claude-101.jpeg', 'Claude 101 — Anthropic Developer Education')">
+                    <div class="cert-img-container">
+                        <img src="certifications/claude-101.jpeg" alt="Claude 101" class="cert-img" loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">Anthropic</div>
+                        <h4>Claude 101</h4>
+                        <p>Advanced prompt engineering techniques, XML tag structuring, system messaging, and context
+                            length optimization for Claude LLMs.</p>
+                        <div class="cert-badge">Completed</div>
+                    </div>
+                </div>
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/claude-AI-fluency.jpeg', 'Claude AI Fluency — Anthropic Developer Education')">
+                    <div class="cert-img-container">
+                        <img src="certifications/claude-AI-fluency.jpeg" alt="Claude AI Fluency" class="cert-img"
+                            loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">Anthropic</div>
+                        <h4>Claude AI Fluency</h4>
+                        <p>Practical integration of Claude API, building tool-use workflows, agentic loop design, and
+                            handling conversational state in web apps.</p>
+                        <div class="cert-badge">Completed</div>
+                    </div>
+                </div>
+                <div class="cert-card"
+                    onclick="openLightbox('certifications/hackathon.jpeg', 'Nandha College 24-Hour Hackathon Certificate')">
+                    <div class="cert-img-container">
+                        <img src="certifications/hackathon.jpeg" alt="Hackathon Certificate" class="cert-img"
+                            loading="lazy">
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-org">Nandha College of Tech</div>
+                        <h4>24-Hour National Hackathon</h4>
+                        <p>Certificate of presentation and completion for developing HealBot — the self-healing CI/CD
+                            pipeline repair agent in Erode.</p>
+                        <div class="cert-badge">Participant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements-section">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div>
+                    <p class="label">Achievements & Hackathons</p>
+                    <h2>Competing, presenting,<br>and building.</h2>
+                </div>
+            </div>
+            <div class="achievements-grid stagger-list">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>CodeZap Hackathon</h4>
+                        <p>Built AI-Passport Employability Ecosystem — featured by Descience Open Source Club (2026)</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Nandha College 24-Hour Hackathon</h4>
+                        <p>Built and demoed Self-Healing CI/CD Pipeline Agent, Erode (2026)</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Paper Presentation — Skin Cancer Detection</h4>
+                        <p>Info Institute of Technology, Coimbatore (2025)</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                        </svg>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Paper Presentation — Personal Voice Assistant</h4>
+                        <p>Karpagam Engineering College, Coimbatore (2024)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="section-inner">
+            <div class="contact-card reveal-scale">
+                <p class="label">Let's Connect</p>
+                <h2>Ready to build<br>something together?</h2>
+                <p>I'm currently seeking Software Developer, Full Stack, or AI Engineer roles. If my work resonates with
+                    what you're building, I'd love to talk.</p>
+                <div class="contact-links">
+                    <a href="mailto:manishvarman5@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink:0;">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        manishvarman5@gmail.com
+                    </a>
+                    <a href="tel:+919791431438">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="flex-shrink:0;">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        +91 97914 31438
+                    </a>
+                    <a href="https://linkedin.com/in/manish-varman" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                            fill="currentColor" style="flex-shrink:0;">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/Manish7sgf" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor" style="flex-shrink:0;">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Manish Varman M · Coimbatore, Tamil Nadu · manishvarman5@gmail.com · +91 97914 31438</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Certificate Preview">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- TagCloud -->
+    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+
+    <script>
+        // TagCloud Initialization
+        document.addEventListener("DOMContentLoaded", function() {
+            const mySkills = [
+                'Python', 'JavaScript', 'TypeScript', 'SQL', 'C/C++', 'HTML/CSS',
+                'FastAPI', 'Flask', 'Node.js', 'Express', 'React', 'scikit-learn',
+                'Prompt Engineering', 'Bio_ClinicalBERT', 'Ollama', 'LLaMA', 'Gemini API', 'OpenRouter', 'LangChain',
+                'GitHub Actions', 'n8n', 'ngrok', 'Docker', 'Vercel', 'Render', 'VS Code', 'Git',
+                'SQLite', 'PostgreSQL', 'Firebase',
+                'pandas', 'numpy', 'XGBoost', 'K-Means', 'Power BI'
+            ];
+            
+            // Adjust radius based on screen width for mobile responsiveness
+            const radius = window.innerWidth < 768 ? 150 : 250;
+            
+            TagCloud('.tagcloud', mySkills, {
+                radius: radius,
+                maxSpeed: 'fast',
+                initSpeed: 'normal',
+                direction: 135,
+                keep: true
+            });
+        });
+    </script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // CINEMATIC PRELOADER — Canvas 2D: Matrix Rain + Neural Network
+        // + 3D Perspective Glitch Name Reveal  (pure JS, no libraries)
+        // ═══════════════════════════════════════════════════════════════
+        (function () {
+            const canvas = document.getElementById('pl-canvas');
+            const ctx = canvas.getContext('2d');
+            const preloader = document.getElementById('preloader');
+
+            // ── Accent colour (copper-orange)
+            const ACCENT = '#C45C3E';
+            const ACCENT_R = 196, ACCENT_G = 92, ACCENT_B = 62;
+
+            // ── Resize helper
+            let W, H;
+            function resize() {
+                W = canvas.width = canvas.offsetWidth;
+                H = canvas.height = canvas.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            // ─────────────────────────────────────────────────────────────
+            // 1. MATRIX RAIN
+            // ─────────────────────────────────────────────────────────────
+            const MATRIX_CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            const FONT_SIZE = 14;
+            let columns, drops;
+
+            function initMatrix() {
+                columns = Math.ceil(W / FONT_SIZE);
+                drops = Array.from({ length: columns }, () => Math.random() * -80);
+            }
+            initMatrix();
+
+            function drawMatrix(alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.font = `${FONT_SIZE}px 'JetBrains Mono', monospace`;
+                drops.forEach((y, i) => {
+                    // Random katakana / binary char
+                    const ch = MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
+                    const x = i * FONT_SIZE;
+
+                    // Head char — bright accent
+                    const bright = Math.random() > 0.8 ? '#FFFFFF' : `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},0.95)`;
+                    ctx.fillStyle = bright;
+                    ctx.fillText(ch, x, y * FONT_SIZE);
+
+                    // Trail fade
+                    for (let t = 1; t < 10; t++) {
+                        const trailAlpha = (10 - t) / 10 * 0.35;
+                        ctx.fillStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},${trailAlpha})`;
+                        const tc = MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
+                        ctx.fillText(tc, x, (y - t) * FONT_SIZE);
+                    }
+
+                    drops[i] += 0.5;
+                    if (drops[i] * FONT_SIZE > H && Math.random() > 0.975) {
+                        drops[i] = Math.random() * -40;
+                    }
+                });
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 2. NEURAL PARTICLE NETWORK
+            // ─────────────────────────────────────────────────────────────
+            const PARTICLE_COUNT = 90;
+            const CONNECTION_DIST = 140;
+            let particles = [];
+
+            function initParticles() {
+                particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+                    x: Math.random() * W, y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    r: Math.random() * 2 + 1,
+                    pulse: Math.random() * Math.PI * 2,
+                    pulseSpeed: 0.02 + Math.random() * 0.03
+                }));
+            }
+            initParticles();
+
+            function drawNetwork(alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    p.pulse += p.pulseSpeed;
+                    if (p.x < 0 || p.x > W) p.vx *= -1;
+                    if (p.y < 0 || p.y > H) p.vy *= -1;
+
+                    // Draw node
+                    const nodeAlpha = alpha * (0.5 + 0.5 * Math.sin(p.pulse));
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},${nodeAlpha})`;
+                    ctx.fill();
+                });
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < CONNECTION_DIST) {
+                            const lineAlpha = alpha * (1 - dist / CONNECTION_DIST) * 0.4;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},${lineAlpha})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 3. 3D PERSPECTIVE HEX-GRID OVERLAY
+            // ─────────────────────────────────────────────────────────────
+            function drawGrid(alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha * 0.15;
+                ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B},1)`;
+                ctx.lineWidth = 0.5;
+                const STEP = 30;
+                // Vanishing point grid (perspective)
+                const vx = W / 2, vy = H * 0.4;
+                for (let x = 0; x <= W; x += STEP) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, H);
+                    ctx.lineTo(vx + (x - vx) * 0.1, vy);
+                    ctx.stroke();
+                }
+                for (let row = 0; row <= 12; row++) {
+                    const t = row / 12;
+                    const y = vy + (H - vy) * (t * t);
+                    const xl = vx + (0 - vx) * (t * t * 0.3 + t * 0.7);
+                    const xr = vx + (W - vx) * (t * t * 0.3 + t * 0.7);
+                    ctx.beginPath();
+                    ctx.moveTo(xl, y);
+                    ctx.lineTo(xr, y);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 4. GLITCH HELPER — draws text with chromatic aberration
+            // ─────────────────────────────────────────────────────────────
+            function glitchText(text, x, y, fontSize, color, glitchAmt, alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.font = `700 ${fontSize}px 'DM Serif Display', serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                if (glitchAmt > 0) {
+                    ctx.globalAlpha = alpha * 0.6;
+                    ctx.fillStyle = 'rgba(255,0,80,0.7)';
+                    ctx.fillText(text, x - glitchAmt, y + glitchAmt * 0.5);
+                    ctx.fillStyle = 'rgba(0,220,255,0.7)';
+                    ctx.fillText(text, x + glitchAmt, y - glitchAmt * 0.5);
+                    ctx.globalAlpha = alpha;
+                }
+                ctx.fillStyle = color;
+                ctx.fillText(text, x, y);
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 5. TARGETING HUD LOCK-ON BRACKETS (canvas-drawn)
+            // ─────────────────────────────────────────────────────────────
+            function drawHUDLock(alpha, progress) {
+                if (alpha <= 0.01) return;
+                if (!charsReady) return;
+                const mChar = chars[0];
+                const vChar = chars[7];
+                const cy = H / 2 + mChar.BASE * 0.35;
+
+                const boxW = (vChar.x_init + vChar.cw) - mChar.x_init + 48;
+                const boxH = mChar.BASE * 1.25;
+                const bx = W / 2 - boxW / 2;
+                const by = cy - mChar.BASE * 0.85;
+
+                // Target lock-in scale animation
+                const t = easeOut(progress);
+                const pad = 65 * (1 - t) + 12;
+                const bl = bx - pad;
+                const bt = by - pad;
+                const br = bx + boxW + pad;
+                const bb = by + boxH + pad;
+
+                const len = 18; // length of corner bracket strokes
+
+                ctx.save();
+                ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * (Math.random() > 0.85 ? 0.3 : 0.8)})`;
+                ctx.lineWidth = 1.8;
+
+                // Add tiny positioning jitters on coordinate matrix glitches
+                let ox = 0, oy = 0;
+                if (Math.random() > 0.92) {
+                    ox = (Math.random() - 0.5) * 10;
+                    oy = (Math.random() - 0.5) * 6;
+                }
+
+                // Draw corner segments
+                ctx.beginPath();
+                // Top-Left
+                ctx.moveTo(bl + ox + len, bt + oy);
+                ctx.lineTo(bl + ox, bt + oy);
+                ctx.lineTo(bl + ox, bt + oy + len);
+
+                // Top-Right
+                ctx.moveTo(br + ox - len, bt + oy);
+                ctx.lineTo(br + ox, bt + oy);
+                ctx.lineTo(br + ox, bt + oy + len);
+
+                // Bottom-Left
+                ctx.moveTo(bl + ox + len, bb + oy);
+                ctx.lineTo(bl + ox, bb + oy);
+                ctx.lineTo(bl + ox, bb + oy - len);
+
+                // Bottom-Right
+                ctx.moveTo(br + ox - len, bb + oy);
+                ctx.lineTo(br + ox, bb + oy);
+                ctx.lineTo(br + ox, bb + oy - len);
+
+                ctx.stroke();
+
+                // Draw scanning laser bar sweeping inside targeting box
+                const scanPeriod = (performance.now() / 180) % (Math.PI * 2);
+                const scanY = by + boxH * 0.5 + Math.sin(scanPeriod) * (boxH * 0.45);
+                ctx.beginPath();
+                ctx.moveTo(bx - 4, scanY);
+                ctx.lineTo(bx + boxW + 4, scanY);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.25})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Digital targeting text status labels
+                ctx.fillStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * 0.6})`;
+                ctx.font = "9px 'JetBrains Mono', monospace";
+
+                if (Math.random() > 0.1) {
+                    ctx.fillText("SYS: SECURE", bl, bt - 6);
+                    ctx.textAlign = "right";
+                    ctx.fillText("LOCK: ENGAGED", br, bb + 12);
+                }
+
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 6. STAGE MACHINE  (total ~4.2 s)
+            // 0   0.0 - 0.5 s   Matrix rain builds
+            // 1   0.5 - 1.0 s   Neural network fades in
+            // 2   1.0 - 1.4 s   Perspective grid sweeps, matrix fades
+            // 3   1.4 - 1.8 s   MV glitch-spawn
+            // 4   1.8 - 2.6 s   Explosion-spring: letters fly center to name
+            // 5   2.6 - 2.9 s   Name holds
+            // 6   2.9 - 3.2 s   Letters shoot off; M blooms
+            // 7   3.2 - 4.2 s   Glass shatter exit reveal
+            // ─────────────────────────────────────────────────────────────
+            const STAGE_T = [0, 500, 1000, 1400, 1800, 2600, 2900, 3200, 4200];
+            let stage = 0;
+            let startTime = null;
+            let raf;
+
+            const lerp = (a, b, t) => a + (b - a) * t;
+            const clamp01 = t => Math.max(0, Math.min(1, t));
+            const easeOut = t => 1 - Math.pow(1 - t, 3);
+            const easeIn = t => t * t * t;
+            const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            const easeElastic = t => {
+                if (t <= 0) return 0; if (t >= 1) return 1;
+                return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI / 3)) + 1;
+            };
+
+            // ── stage-level alphas
+            function stageProgress(ms, stageIdx) {
+                const s = STAGE_T[stageIdx], e = STAGE_T[stageIdx + 1];
+                return clamp01((ms - s) / (e - s));
+            }
+
+            const FULL_NAME = 'Manish Varman';
+            const SCRAMBLE_CHARS = '01アイウエオカキクケコサシスセソタチツハヒ!@#$%?';
+
+            let chars = [];
+            let charsReady = false;
+            let ringSpawned = [false, false, false, false];
+            let mvGlitch = 0;
+
+            // Circuit dissolve variables
+            let circuitInitialized = false;
+            let circuitPaths = [];
+            let dataBlocks = [];
+
+            function buildCharPositions() {
+                const BASE = Math.min(W, H) * 0.10;
+                const tmp = document.createElement('canvas');
+                tmp.width = W; tmp.height = H;
+                const tc = tmp.getContext('2d');
+                tc.font = `700 ${BASE}px 'DM Serif Display', serif`;
+
+                const charsList = FULL_NAME.split('');
+
+                // Measure each char individually
+                const cws = charsList.map(ch => tc.measureText(ch === ' ' ? 'n' : ch).width * (ch === ' ' ? 0.38 : 1));
+                const totalW = cws.reduce((a, b) => a + b, 0);
+
+                // Final positions (centered full name layout)
+                let cx = W / 2 - totalW / 2;
+                const cy = H / 2 + BASE * 0.35;
+                const finalXs = [];
+                for (let i = 0; i < charsList.length; i++) {
+                    finalXs.push(cx);
+                    cx += cws[i];
+                }
+
+                // Initial positions (centered "M V" layout)
+                // M is index 0, space is index 6, V is index 7
+                const initW = cws[0] + cws[6] + cws[7];
+                const cx_init = W / 2 - initW / 2;
+                const initX_M = cx_init;
+                const initX_V = cx_init + cws[0] + cws[6];
+
+                chars = charsList.map((ch, i) => {
+                    let color = 'rgba(210,210,210,0.95)';
+                    if (i === 0) color = '#FFFFFF';
+                    if (ch === 'V') color = ACCENT;
+
+                    let x_init = 0;
+                    if (i === 0) {
+                        x_init = initX_M;
+                    } else if (i === 7) {
+                        x_init = initX_V;
+                    } else if (i > 0 && i < 7) {
+                        x_init = initX_M + cws[0];
+                    } else {
+                        // index 8 to 14
+                        x_init = initX_V + cws[7];
+                    }
+
+                    // Collapse target (merging into single M centered)
+                    const x_collapse = W / 2 - cws[0] / 2;
+
+                    const ang = Math.atan2(cy - H / 2, finalXs[i] - W / 2) + (Math.random() - 0.5) * 0.8;
+                    const spd = 8 + Math.random() * 8;
+                    return {
+                        ch, finalX: finalXs[i], finalY: cy, cw: cws[i], BASE, color, i,
+                        x_init,
+                        x_collapse,
+                        lockAt: STAGE_T[4] + 250 + i * 35,
+                        svx: Math.cos(ang) * spd + (Math.random() - 0.5) * 3,
+                        svy: Math.sin(ang) * spd + (Math.random() - 0.5) * 3 - 2,
+                        shot: false
+                    };
+                });
+                charsReady = true;
+            }
+
+            function tick(now) {
+                raf = requestAnimationFrame(tick);
+                if (!startTime) startTime = now;
+                const ms = now - startTime;
+
+                while (stage < STAGE_T.length - 1 && ms >= STAGE_T[stage + 1]) stage++;
+
+                ctx.fillStyle = 'rgba(8,8,8,0.20)';
+                ctx.fillRect(0, 0, W, H);
+
+                const matA = clamp01(easeOut(stageProgress(ms, 0))) * clamp01(easeOut(1 - stageProgress(ms, 2)));
+                const netA = clamp01(easeInOut(stageProgress(ms, 1))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
+                const gridA = clamp01(easeOut(stageProgress(ms, 2))) * clamp01(1 - easeOut(stageProgress(ms, 3)));
+
+                drawMatrix(matA);
+                drawNetwork(netA);
+                drawGrid(gridA);
+
+                // Stage 3: MV glitch & target HUD lock-on
+                if (ms >= STAGE_T[3] && ms < STAGE_T[5]) {
+                    const p3 = stageProgress(ms, 3);
+                    const mvA = clamp01(easeOut(p3));
+                    if (mvA < 0.5) {
+                        mvGlitch = lerp(24, 2, p3 * 2);
+                    } else {
+                        mvGlitch = Math.random() > 0.86 ? 4 + Math.random() * 12 : (Math.random() > 0.65 ? 1 : 0);
+                    }
+                    const mvFade = ms >= STAGE_T[4] ? clamp01(1 - stageProgress(ms, 4) * 8) : mvA;
+                    if (mvFade > 0.01) {
+                        if (!charsReady) buildCharPositions();
+                        drawInitialsGlitch(mvGlitch, mvFade);
+                        drawHUDLock(mvFade, p3);
+                    }
+                }
+
+                // Stages 4+5+6: spring name
+                if (ms >= STAGE_T[4] && ms < STAGE_T[7]) {
+                    if (!charsReady) {
+                        buildCharPositions();
+                    }
+                    const shooting = ms >= STAGE_T[6];
+                    const shootP = stageProgress(ms, 6);
+                    drawSpringName(ms, now, shooting, shootP);
+                }
+
+                // Stage 7: Circuit flow reveal
+                if (ms >= STAGE_T[7]) {
+                    const p7 = stageProgress(ms, 7);
+                    if (!circuitInitialized) {
+                        initCircuitDissolve();
+                    }
+                    drawCircuitDissolve(p7);
+
+                    if (ms >= STAGE_T[8]) {
+                        cancelAnimationFrame(raf);
+                        preloader.style.display = 'none';
+                    }
+                }
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 8. MATRIX POP-UP GLITCH DISSOLVE + COLLAPSE NAME DRAW
+            // ─────────────────────────────────────────────────────────────
+            function drawSpringName(ms, now, shooting, shootP) {
+                if (!charsReady) return;
+
+                chars.forEach(c => {
+                    if (c.ch === ' ') return;
+
+                    // ── Collapse back into M (Stage 6)
+                    if (shooting) {
+                        const t = easeInOut(shootP);
+                        const px = lerp(c.finalX, c.x_collapse, t);
+                        const py = c.finalY;
+
+                        if (c.i === 0) {
+                            ctx.save();
+                            ctx.globalAlpha = 1;
+                            ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                            ctx.textBaseline = 'alphabetic';
+                            ctx.fillStyle = '#FFFFFF';
+                            if (shootP > 0) {
+                                ctx.shadowColor = '#FFFFFF';
+                                ctx.shadowBlur = 65 * shootP;
+                            }
+                            ctx.fillText('M', px, py);
+                            ctx.restore();
+                            return;
+                        }
+
+                        const a = clamp01(1 - t * 1.5);
+                        if (a <= 0) return;
+
+                        ctx.save();
+                        ctx.globalAlpha = a;
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+                        ctx.fillStyle = c.color;
+                        ctx.fillText(c.ch, px, py);
+                        ctx.restore();
+                        return;
+                    }
+
+                    // ── Pop-up Glitch Dissolve Transition (Stage 4 & 5)
+                    const tGlitch = ms - STAGE_T[4]; // ms elapsed in Stage 4
+                    const cy = c.finalY;
+                    const SCRAMBLE_DUR = 580; // Extended scramble window for better visibility
+
+                    if (tGlitch < SCRAMBLE_DUR) {
+                        // 1. Draw initials M V fading out at x_init
+                        if (c.i === 0 || c.i === 7) {
+                            const initFade = clamp01(1 - tGlitch / 400);
+                            ctx.save();
+                            ctx.globalAlpha = initFade * (Math.random() > 0.4 ? 0.3 : 1.0);
+                            ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                            ctx.textBaseline = 'alphabetic';
+                            ctx.fillStyle = c.i === 0 ? '#FFFFFF' : ACCENT;
+
+                            // Horizontal slice offset glitch
+                            const gox = (Math.random() - 0.5) * 14 * initFade;
+                            ctx.fillText(c.ch, c.x_init + gox, cy);
+                            ctx.restore();
+                        }
+
+                        // 2. Draw full name letters scrambling and fading in at finalX
+                        const fadeIn = clamp01(tGlitch / 480);
+                        const isScrambled = Math.random() > (tGlitch / SCRAMBLE_DUR); // decreases over time
+
+                        // Slow down flicker frequency by changing characters every 65ms
+                        const charIndex = Math.floor((now + c.i * 45) / 65) % SCRAMBLE_CHARS.length;
+                        const drawCh = isScrambled ? SCRAMBLE_CHARS[charIndex] : c.ch;
+
+                        ctx.save();
+                        ctx.globalAlpha = fadeIn * (Math.random() > 0.35 ? 1.0 : 0.15); // opacity flicker
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+
+                        const gox = (Math.random() - 0.5) * 8 * (1 - tGlitch / SCRAMBLE_DUR);
+
+                        // Chromatic aberration
+                        if (Math.random() > 0.5) {
+                            ctx.fillStyle = 'rgba(255, 0, 80, 0.7)';
+                            ctx.fillText(drawCh, c.finalX + gox - 3, cy);
+                            ctx.fillStyle = 'rgba(0, 220, 255, 0.7)';
+                            ctx.fillText(drawCh, c.finalX + gox + 3, cy);
+                        }
+
+                        ctx.fillStyle = isScrambled ? ACCENT : c.color;
+                        ctx.fillText(drawCh, c.finalX + gox, cy);
+                        ctx.restore();
+
+                    } else {
+                        // 3. Locked full name in final position (Stage 5 / end of Stage 4)
+                        const flash = clamp01(1 - (tGlitch - SCRAMBLE_DUR) / 220);
+                        const scaleY = 1 + flash * 0.15; // subtle snap elastic lock bounce
+
+                        ctx.save();
+                        ctx.globalAlpha = 1;
+                        ctx.font = `700 ${c.BASE}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+                        ctx.fillStyle = c.color;
+
+                        if (flash > 0) {
+                            ctx.shadowColor = '#FFFFFF';
+                            ctx.shadowBlur = 40 * flash;
+                        }
+
+                        ctx.translate(c.finalX + c.cw / 2, cy - c.BASE * 0.38);
+                        ctx.scale(1, scaleY);
+                        ctx.fillText(c.ch, -c.cw / 2, c.BASE * 0.38);
+                        ctx.restore();
+                    }
+                });
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 8b. INITIALS GLITCH RENDERING (Stage 3 alignment)
+            // ─────────────────────────────────────────────────────────────
+            function drawInitialsGlitch(glitchAmt, alpha) {
+                if (!charsReady) return;
+                const mChar = chars[0];
+                const vChar = chars[7];
+                const cy = H / 2 + mChar.BASE * 0.35;
+
+                // Render micro scanline noise bars crossing the initials height
+                if (glitchAmt > 0 && Math.random() > 0.55) {
+                    const barCount = 1 + Math.floor(Math.random() * 3);
+                    ctx.save();
+                    for (let b = 0; b < barCount; b++) {
+                        const by = cy - mChar.BASE * 0.75 + Math.random() * mChar.BASE * 1.2;
+                        const bh = 1.5 + Math.random() * 3.5;
+                        const bx = W / 2 - mChar.BASE * 1.8 + Math.random() * mChar.BASE * 3.6;
+                        const bw = 25 + Math.random() * 100;
+                        ctx.fillStyle = Math.random() > 0.5 ? ACCENT : '#FFFFFF';
+                        ctx.globalAlpha = alpha * 0.45;
+                        ctx.fillRect(bx, by, bw, bh);
+                    }
+                    ctx.restore();
+                }
+
+                // Helper to draw horizontal slice chromatic aberrations
+                function drawSliceChar(char, x, y, baseSize, color) {
+                    // Draw base letter underlay with slight noise
+                    ctx.save();
+                    ctx.globalAlpha = alpha * (Math.random() > 0.15 ? 0.35 : 0.85);
+                    ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.fillStyle = color;
+                    ctx.fillText(char, x, y);
+                    ctx.restore();
+
+                    // If glitching, apply horizontal slice cuts
+                    if (glitchAmt > 0) {
+                        const slices = 3;
+                        const h = baseSize * 1.35;
+                        const startY = y - baseSize * 0.9;
+
+                        for (let s = 0; s < slices; s++) {
+                            const sliceY = startY + (h / slices) * s;
+                            const sliceH = h / slices;
+
+                            // Horizontal offset shift inside slice
+                            const sliceOffset = (Math.random() - 0.5) * glitchAmt * 2.4;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.rect(0, sliceY, W, sliceH);
+                            ctx.clip();
+
+                            ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                            ctx.textBaseline = 'alphabetic';
+                            ctx.globalAlpha = alpha;
+
+                            // Chromatic offsets
+                            ctx.fillStyle = 'rgba(255, 0, 80, 0.75)';
+                            ctx.fillText(char, x + sliceOffset - 3.5, y);
+
+                            ctx.fillStyle = 'rgba(0, 220, 255, 0.75)';
+                            ctx.fillText(char, x + sliceOffset + 3.5, y);
+
+                            ctx.fillStyle = color;
+                            ctx.fillText(char, x + sliceOffset, y);
+
+                            ctx.restore();
+                        }
+                    } else {
+                        // Unglitched normal render
+                        ctx.save();
+                        ctx.globalAlpha = alpha;
+                        ctx.font = `700 ${baseSize}px 'DM Serif Display', serif`;
+                        ctx.textBaseline = 'alphabetic';
+                        ctx.fillStyle = color;
+                        ctx.fillText(char, x, y);
+                        ctx.restore();
+                    }
+                }
+
+                // Render M and V using slice generator
+                drawSliceChar('M', mChar.x_init, cy, mChar.BASE, '#FFFFFF');
+                drawSliceChar('V', vChar.x_init, cy, vChar.BASE, ACCENT);
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 8c. AI CIRCUIT DISSOLVE TRANSITION ENGINE
+            // ─────────────────────────────────────────────────────────────
+            function initCircuitDissolve() {
+                circuitInitialized = true;
+
+                // Set preloader transparent so portfolio shows behind
+                preloader.style.background = 'transparent';
+                preloader.style.transition = 'none';
+
+                // Free scroll immediately
+                document.body.classList.remove('preloader-active');
+                
+                // Hide navbar temporarily for the reveal
+                const navbar = document.getElementById('navbar');
+                navbar.style.opacity = '0';
+                
+                // --- Leaf Flight Logo Animation ---
+                const realLogo = document.querySelector('.logo');
+                const logoRect = realLogo.getBoundingClientRect();
+                
+                // Create clone for flight
+                const flyingLogo = realLogo.cloneNode(true);
+                flyingLogo.style.position = 'fixed';
+                flyingLogo.style.margin = '0';
+                flyingLogo.style.opacity = '1';
+                flyingLogo.style.zIndex = '10000';
+                
+                const centerX = window.innerWidth / 2 - logoRect.width / 2;
+                const centerY = window.innerHeight / 2 - logoRect.height / 2;
+                
+                gsap.set(flyingLogo, {
+                    left: 0,
+                    top: 0,
+                    x: centerX,
+                    y: centerY,
+                    scale: 3,
+                    rotation: -180,
+                    opacity: 0,
+                    transformOrigin: '50% 50%'
+                });
+                
+                document.body.appendChild(flyingLogo);
+                
+                const flightTl = gsap.timeline();
+                flightTl.to(flyingLogo, {
+                    opacity: 1,
+                    rotation: -10,
+                    duration: 0.6,
+                    ease: "back.out(1.5)"
+                })
+                .to(flyingLogo, {
+                    x: logoRect.left,
+                    duration: 1.8,
+                    ease: "power1.inOut"
+                }, "+=0.3")
+                .to(flyingLogo, {
+                    y: logoRect.top,
+                    duration: 1.8,
+                    ease: "back.in(1.2)"
+                }, "<")
+                .to(flyingLogo, {
+                    scale: 1,
+                    rotation: 360,
+                    duration: 1.8,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        flyingLogo.remove();
+                        navbar.style.transition = 'opacity 1s ease';
+                        navbar.style.opacity = '1';
+                        
+                        // Trigger portfolio fade-in classes after logo lands
+                        document.body.classList.add('loaded');
+                    }
+                }, "<");
+
+                // Generate circuit paths branching out orthogonally from center
+                const PATH_COUNT = 65;
+                for (let i = 0; i < PATH_COUNT; i++) {
+                    const points = [{ x: W / 2, y: H / 2 }];
+                    let curX = W / 2;
+                    let curY = H / 2;
+
+                    const segments = [];
+                    let lastDir = Math.floor(Math.random() * 4); // 0:R, 1:D, 2:L, 3:U
+                    const segmentCount = 3 + Math.floor(Math.random() * 2); // 3 or 4 turns
+
+                    for (let s = 0; s < segmentCount; s++) {
+                        const turn = Math.random() > 0.45 ? (Math.random() > 0.5 ? 1 : -1) : 0;
+                        const dir = (lastDir + turn + 4) % 4;
+                        const len = 65 + Math.random() * 140;
+
+                        const p0 = { x: curX, y: curY };
+                        if (dir === 0) curX += len;
+                        else if (dir === 1) curY += len;
+                        else if (dir === 2) curX -= len;
+                        else if (dir === 3) curY -= len;
+                        const p1 = { x: curX, y: curY };
+
+                        segments.push({ p0, p1, len });
+                        points.push(p1);
+                        lastDir = dir;
+                    }
+
+                    const totalLen = segments.reduce((a, b) => a + b.len, 0);
+                    circuitPaths.push({ points, segments, totalLen });
+                }
+
+                // Generate dissolving digital blocks
+                const BLOCK_COUNT = 150;
+                for (let i = 0; i < BLOCK_COUNT; i++) {
+                    const ox = (Math.random() - 0.5) * 80;
+                    const oy = (Math.random() - 0.5) * 80;
+                    const size = 3 + Math.random() * 4;
+                    const delay = Math.random() * 0.35;
+                    const pathIndex = Math.floor(Math.random() * PATH_COUNT);
+
+                    dataBlocks.push({
+                        ox, oy, size, delay, pathIndex,
+                        color: Math.random() > 0.4 ? ACCENT : '#FFFFFF'
+                    });
+                }
+            }
+
+            function getPointAlongPath(path, t) {
+                const targetDist = t * path.totalLen;
+                let accumulated = 0;
+                for (let seg of path.segments) {
+                    if (accumulated + seg.len >= targetDist) {
+                        const localT = (targetDist - accumulated) / seg.len;
+                        return {
+                            x: lerp(seg.p0.x, seg.p1.x, localT),
+                            y: seg.p0.y === seg.p1.y ? seg.p0.y : lerp(seg.p0.y, seg.p1.y, localT)
+                        };
+                    }
+                    accumulated += seg.len;
+                }
+                return path.points[path.points.length - 1];
+            }
+
+            function drawCircuitDissolve(p7) {
+                ctx.clearRect(0, 0, W, H);
+
+                const alpha = clamp01(1 - p7);
+
+                // 1. Draw decaying central "M"
+                if (alpha > 0.01) {
+                    drawGlowM(alpha);
+                }
+
+                // 2. Draw active circuit traces
+                ctx.save();
+                circuitPaths.forEach(path => {
+                    const traceProgress = clamp01(p7 * 1.5);
+                    const drawLen = traceProgress * path.totalLen;
+
+                    ctx.beginPath();
+                    ctx.moveTo(path.points[0].x, path.points[0].y);
+
+                    let accumulated = 0;
+                    for (let seg of path.segments) {
+                        if (accumulated + seg.len >= drawLen) {
+                            const localT = (drawLen - accumulated) / seg.len;
+                            const curX = lerp(seg.p0.x, seg.p1.x, localT);
+                            const curY = seg.p0.y === seg.p1.y ? seg.p0.y : lerp(seg.p0.y, seg.p1.y, localT);
+                            ctx.lineTo(curX, curY);
+                            break;
+                        } else {
+                            ctx.lineTo(seg.p1.x, seg.p1.y);
+                        }
+                        accumulated += seg.len;
+                    }
+
+                    ctx.strokeStyle = `rgba(${ACCENT_R},${ACCENT_G},${ACCENT_B}, ${alpha * 0.35})`;
+                    ctx.lineWidth = 1.2;
+                    ctx.stroke();
+
+                    // Draw glowing front node (electron pulse)
+                    if (traceProgress > 0 && traceProgress < 1) {
+                        const pulsePt = getPointAlongPath(path, traceProgress);
+                        ctx.beginPath();
+                        ctx.arc(pulsePt.x, pulsePt.y, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.shadowColor = ACCENT;
+                        ctx.shadowBlur = 8;
+                        ctx.fill();
+                    }
+                });
+                ctx.restore();
+
+                // 3. Draw flowing data blocks
+                ctx.save();
+                dataBlocks.forEach(b => {
+                    const blockProgress = clamp01((p7 - b.delay) / (1 - b.delay));
+                    if (blockProgress <= 0 || blockProgress >= 1) return;
+
+                    const path = circuitPaths[b.pathIndex];
+                    const basePt = getPointAlongPath(path, blockProgress);
+
+                    const px = lerp(path.points[0].x + b.ox, basePt.x, clamp01(blockProgress * 3));
+                    const py = lerp(path.points[0].y + b.oy, basePt.y, clamp01(blockProgress * 3));
+                    const blockAlpha = alpha * clamp01((1 - blockProgress) * 1.5);
+
+                    ctx.fillStyle = b.color;
+                    ctx.globalAlpha = blockAlpha;
+                    ctx.fillRect(px - b.size / 2, py - b.size / 2, b.size, b.size);
+                });
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 9. GLOWING SOLO M
+            // ─────────────────────────────────────────────────────────────
+            function drawGlowM(alpha) {
+                if (alpha <= 0) return;
+                const BASE = Math.min(W, H) * 0.15;
+                ctx.save();
+                ctx.font = `700 ${BASE}px 'DM Serif Display', serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = '#FFFFFF';
+                ctx.shadowColor = '#FFFFFF';
+                ctx.shadowBlur = 65;
+                ctx.globalAlpha = alpha;
+                ctx.fillText('M', W / 2, H / 2);
+                ctx.shadowBlur = 130;
+                ctx.globalAlpha = alpha * 0.35;
+                ctx.fillText('M', W / 2, H / 2);
+                ctx.restore();
+            }
+
+            // ─────────────────────────────────────────────────────────────
+            // 10. PRELOADER INTEGRITY TESTS & DIAGNOSTICS
+            // ─────────────────────────────────────────────────────────────
+            function runPreloaderTests() {
+                console.log('%c⚙️ PORTFOLIO DIAGNOSTICS & TEST SUITE', 'color: #C45C3E; font-weight: bold; font-size: 14px;');
+
+                const results = [];
+
+                // Test 1: Canvas & Context check
+                const canvasOk = canvas && canvas.tagName === 'CANVAS';
+                const ctxOk = ctx instanceof CanvasRenderingContext2D;
+                results.push({ name: 'Canvas Node & 2D Context API', pass: canvasOk && ctxOk });
+
+                // Test 2: Dimensions Bounds Check
+                const dimsOk = W > 0 && H > 0;
+                results.push({ name: `Responsive Dimensions Integrity (${W}x${H})`, pass: dimsOk });
+
+                // Test 3: Stage Timing Integrity
+                const stagesOk = Array.isArray(STAGE_T) && STAGE_T.length === 9;
+                let timingMonotonic = true;
+                for (let i = 1; i < STAGE_T.length; i++) {
+                    if (STAGE_T[i] <= STAGE_T[i - 1]) timingMonotonic = false;
+                }
+                results.push({ name: `Stage Time Bounds Monotonicity (total ${(STAGE_T[STAGE_T.length - 1] / 1000).toFixed(1)}s)`, pass: stagesOk && timingMonotonic });
+
+                // Test 4: Particle Node Structural Safety
+                const particlesOk = Array.isArray(particles) && particles.length === PARTICLE_COUNT;
+                let particlesInBounds = true;
+                if (particlesOk) {
+                    for (let p of particles) {
+                        if (p.x < -50 || p.x > W + 50 || p.y < -50 || p.y > H + 50) {
+                            particlesInBounds = false;
+                        }
+                    }
+                }
+                results.push({ name: `Neural Network Node Density & Bounds Verification`, pass: particlesOk && particlesInBounds });
+
+                // Test 5: Responsive Text Scaling & Width Check
+                ctx.save();
+                const BASE = Math.min(W, H) * 0.10;
+                ctx.font = `700 ${BASE}px 'DM Serif Display', serif`;
+                const textWidth = ctx.measureText(FULL_NAME).width;
+                ctx.restore();
+                const textFits = textWidth < W * 0.98; // fits inside viewport width
+                results.push({ name: `Responsive Text Scale & Flow Safety (Text: ${Math.round(textWidth)}px / Viewport: ${W}px)`, pass: textFits });
+
+                // Test 6: Performance Loop Validation (FPS Calculation)
+                let frameTimes = [];
+                let testStartTime = performance.now();
+
+                function measureFPS(t) {
+                    frameTimes.push(t);
+                    if (frameTimes.length > 30) frameTimes.shift();
+
+                    const elapsed = performance.now() - testStartTime;
+                    if (elapsed < 600) {
+                        requestAnimationFrame(measureFPS);
+                    } else {
+                        let diffs = [];
+                        for (let i = 1; i < frameTimes.length; i++) {
+                            diffs.push(frameTimes[i] - frameTimes[i - 1]);
+                        }
+                        const avgDiff = diffs.reduce((a, b) => a + b, 0) / diffs.length;
+                        const fps = 1000 / avgDiff;
+                        const fpsOk = fps > 50;
+
+                        console.log(`%c[${fpsOk ? 'PASS' : 'WARN'}] Render loop performance (${fps.toFixed(1)} FPS)`, `color: ${fpsOk ? '#4CAF50' : '#FF9800'}; font-weight: bold;`);
+                    }
+                }
+                requestAnimationFrame(measureFPS);
+
+                // Print results
+                results.forEach(r => {
+                    const status = r.pass ? 'PASS' : 'FAIL';
+                    const color = r.pass ? '#4CAF50' : '#F44336';
+                    console.log(`%c[${status}] ${r.name}`, `color: ${color}; font-weight: bold;`);
+                });
+            }
+            setTimeout(runPreloaderTests, 100);
+
+            // ── Kick off
+            requestAnimationFrame(tick);
+        })();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Handle list staggering dynamically (prepare classes for GSAP)
+        document.querySelectorAll('.stagger-list').forEach(parent => {
+            Array.from(parent.children).forEach(child => {
+                child.classList.remove('fade-in');
+                child.classList.add('reveal-up');
+            });
+        });
+
+        // Initialize GSAP ScrollTrigger Animations
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Standard Entry Animations (Trigger-based)
+            const revealClasses = [
+                { cls: '.reveal-up', y: 35, scale: 1, x: 0 },
+                { cls: '.reveal-scale', y: 20, scale: 0.95, x: 0 },
+                { cls: '.reveal-left', y: 0, scale: 1, x: -40 },
+                { cls: '.reveal-right', y: 0, scale: 1, x: 40 }
+            ];
+
+            revealClasses.forEach(({ cls, y, scale, x }) => {
+                gsap.utils.toArray(cls).forEach(el => {
+                    gsap.to(el, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none none"
+                        },
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        scale: 1,
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Handle stagger lists inside ScrollTrigger
+            gsap.utils.toArray('.stagger-list').forEach(list => {
+                const children = list.children;
+                gsap.to(children, {
+                    scrollTrigger: {
+                        trigger: list,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out"
+                });
+            });
+
+            // 2. Hero Section Parallax Fade
+            const tlHero = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+            tlHero.to(".hero-content", { y: -100, opacity: 0, ease: "none" }, 0)
+                  .to(".hero-card", { y: -50, rotation: 5, ease: "none" }, 0);
+
+            // 3. Grid Section Parallax (Projects, Certs, Achievements)
+            const gridCards = gsap.utils.toArray('.project-card, .cert-card, .achievement-card');
+            gridCards.forEach((card, i) => {
+                // Apply different speeds based on index (odd/even) to create layered 3D depth
+                const speed = i % 2 === 0 ? 30 : 60;
+                gsap.fromTo(card, { y: speed }, {
+                    y: -speed,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            });
+        });
+
+        // Mobile toggle
+        function toggleMobile() {
+            const navLinks = document.querySelector('.nav-links');
+            const toggleBtn = document.querySelector('.mobile-toggle');
+            navLinks.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const toggleBtn = document.querySelector('.mobile-toggle');
+                navLinks.classList.remove('active');
+                toggleBtn.classList.remove('active');
+            });
+        });
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(imgSrc, captionText) {
+            lightboxImg.src = imgSrc;
+            lightboxCaption.textContent = captionText;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close on clicking outside the content
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script>
+        // Security: Disable Right-Click and DevTools Shortcuts
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            // Prevent F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J, Ctrl+U
+            if (
+                event.keyCode === 123 || 
+                (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 67 || event.keyCode === 74)) ||
+                (event.ctrlKey && event.keyCode === 85)
+            ) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
