@@ -1382,49 +1382,22 @@
             transition-delay: 1.0s;
         }
 
-        /* Scroll reveal transition classes */
+        /* Scroll reveal initial states (Animations handled by GSAP) */
         .reveal-up {
             opacity: 0;
             transform: translateY(35px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .reveal-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .reveal-scale {
             opacity: 0;
             transform: scale(0.95) translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .reveal-scale.visible {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-
         .reveal-left {
             opacity: 0;
             transform: translateX(-40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
         .reveal-right {
             opacity: 0;
             transform: translateX(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
         }
     </style>
 </head>
@@ -2265,6 +2238,10 @@
             <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
     </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         // ═══════════════════════════════════════════════════════════════
@@ -3160,39 +3137,89 @@
             }
         });
 
-        // Scroll animations using IntersectionObserver
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Stop observing once animated
-                    observer.unobserve(entry.target);
-                }
+        // Handle list staggering dynamically (prepare classes for GSAP)
+        document.querySelectorAll('.stagger-list').forEach(parent => {
+            Array.from(parent.children).forEach(child => {
+                child.classList.remove('fade-in');
+                child.classList.add('reveal-up');
             });
-        }, observerOptions);
-
-        // Observe custom reveal elements
-        const revealClasses = ['.reveal-up', '.reveal-scale', '.reveal-left', '.reveal-right'];
-        revealClasses.forEach(cls => {
-            document.querySelectorAll(cls).forEach(el => observer.observe(el));
         });
 
-        // Handle list staggering dynamically
-        document.querySelectorAll('.stagger-list').forEach(parent => {
-            const children = parent.children;
-            Array.from(children).forEach((child, index) => {
-                // Remove legacy class if any, to avoid conflicts
-                child.classList.remove('fade-in');
+        // Initialize GSAP ScrollTrigger Animations
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
 
-                // Add standard reveal class and stagger delay
-                child.classList.add('reveal-up');
-                child.style.transitionDelay = `${index * 0.15}s`;
-                observer.observe(child);
+            // 1. Standard Entry Animations (Trigger-based)
+            const revealClasses = [
+                { cls: '.reveal-up', y: 35, scale: 1, x: 0 },
+                { cls: '.reveal-scale', y: 20, scale: 0.95, x: 0 },
+                { cls: '.reveal-left', y: 0, scale: 1, x: -40 },
+                { cls: '.reveal-right', y: 0, scale: 1, x: 40 }
+            ];
+
+            revealClasses.forEach(({ cls, y, scale, x }) => {
+                gsap.utils.toArray(cls).forEach(el => {
+                    gsap.to(el, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none none"
+                        },
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        scale: 1,
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Handle stagger lists inside ScrollTrigger
+            gsap.utils.toArray('.stagger-list').forEach(list => {
+                const children = list.children;
+                gsap.to(children, {
+                    scrollTrigger: {
+                        trigger: list,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out"
+                });
+            });
+
+            // 2. Hero Section Parallax Fade
+            const tlHero = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+            tlHero.to(".hero-content", { y: -100, opacity: 0, ease: "none" }, 0)
+                  .to(".hero-card", { y: -50, rotation: 5, ease: "none" }, 0);
+
+            // 3. Grid Section Parallax (Projects, Certs, Achievements)
+            const gridCards = gsap.utils.toArray('.project-card, .cert-card, .achievement-card');
+            gridCards.forEach((card, i) => {
+                // Apply different speeds based on index (odd/even) to create layered 3D depth
+                const speed = i % 2 === 0 ? 30 : 60;
+                gsap.fromTo(card, { y: speed }, {
+                    y: -speed,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
             });
         });
 
